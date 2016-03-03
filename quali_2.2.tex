@@ -975,7 +975,11 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 
 
  	Variáveis:
- 	I 	é o número de pares no sistema.
+ 	 \begin{description}
+   \item[banana] fruta amarela, a forma lembra a Lua.
+   \item[maçã] fruta vermelha e arredondada.
+ 
+    I 	é o número de pares no sistema.
  	v	é o único vídeo que será distribuído, v=1.
  	H 	é o número de segmentos do filme. 
  	X 	é o tempo de playback do filme V.
@@ -992,7 +996,7 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
   	b	é a taxa de visualização
   	J	é o número de versões
   	S	é um swarm ( conjunto de pares ).
-
+\end{description}
 Neste modelo assumimos que uma rede P2P com N pares apoia um servidor na distribuição de segmentos de vídeos em um sistema CDN-P2P, que distribui vídeos sob demanda por meio de streaming adaptativo, de modo que, é necessário decidir quais segmentos e de quais versões serão baixados, tal decisão deve considerar a melhora na percepção da qualidade do vídeo pelo usuário e também a diminuição da carga sobre o servidor, cada par tem espaço de armazenamento c e diferentes disponibilidades de banda de upload u, que assumimos estarem ordenadas de forma decrescente u1 > u2 > - - - > uN,(Xu:2013) e download d que variam com o tempo, para guardar e compartilhar conteúdo com a comunidade.
 .
 
@@ -1037,26 +1041,34 @@ Para este cenário, consideramos o problema de otimização da disponibilidade d
 \section{Modelo de Otimização}
 
 Na distribuição de vídeos em uma comunidade sem streaming adaptativo, o número de cópias de qualquer objeto é um inteiro a qualquer momento. Seja Xiv uma variável zero-um a qual é igual a 1 se o par i contém uma cópia do vídeo v e 0 caso contrário.
-Dado: nv= número de cópias do vídeo v.
-
-As fórmulas \ref{eq:equacao-exemplo1} e são exemplos de como apresentar fórmulas e equações destacadas do parágrafo normal do texto. Veja mais detalhes no anexo \ref{anexoA} deste documento.
-
+Dado: Si= ser a capacidade em bytes de armazenamento do par i e  S=capacidade total de armazenamento da comunidade, tem-se:
 \begin{equation}
-  n_{v}=\sum_{i=1}^{I}x_{iv}
+S=\sum_{i=1}^{I}Si,\forall i\in I
+\end{equation}
+%\begin{equation}
+% \forall i\in I
+% \end{equation}
+% \begin{equation}
+
+
+	%\label{eq:equacao-exemplo1}
+
+
+
+% \begin{equation}
+%   Phit=1 -{v}q_{v}\prod_{i=1}^{I}(1-p_{i})^{x_{iv}}
+% 	\label{eq:equacao-exemplo2}
+% \end{equation}
+Dado que $n_v$ é o número de réplicas do vídeo v, busca-se maximizar o número de cópias do vídeo:
+\begin{equation}
+%numero de copias do video v no swarm
+n_{v}=\sum_{i=1}^{I}x_{iv}
 	\label{eq:equacao-exemplo1}
 \end{equation}
-
-Dado: S=capacidade total de armazenamento da comunidade. A probabilidade é dada por:
-
-\begin{equation}
-  Phit=1 -{v}q_{v}\prod_{i=1}^{I}(1-p_{i})^{x_{iv}}
-	\label{eq:equacao-exemplo2}
-\end{equation}
-
 Sujeito a:
 
 \begin{equation}
-  \sum_{v=1}^{v}L_{v}x_{iv}\leq S_{i},i=1,...,I
+  \sum_{v=1}^{v}L_{v}x_{iv}\leq S, \forall i\in I
 	\label{eq:equacao-exemplo3}
 \end{equation}
 
@@ -1080,7 +1092,7 @@ No streaming adaptativo cada arquivo de vídeo é dividido em J versões e cada 
 \begin{figure}[H]% H manda colocar exatamente nessa posição no texto (relativa aos parágrafos anterior e posterior)
 	\centering
  	  \caption{Representação de um vídeo para streaming adaptativo}
-		\includegraphics{segmentos.png}
+		\includegraphics{figuras/segmentos.png}
 	%\label{figura1:Streaming adaptativo em uma rede P2P}
   \source{Autor, 2016}
 \end{figure}
