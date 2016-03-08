@@ -996,11 +996,12 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 \item[P]  	é um swarm ( conjunto de pares ).
 
 \end{description}
-Neste modelo assumimos que uma rede P2P com N pares apoia um servidor na distribuição de segmentos de vídeos em um sistema CDN-P2P, que distribui vídeos sob demanda por meio de streaming adaptativo, de modo que, é necessário decidir quais segmentos e de quais versões serão baixados, tal decisão deve considerar a melhora na percepção da qualidade do vídeo pelo usuário e também a diminuição da carga sobre o servidor, cada par tem espaço de armazenamento c e diferentes disponibilidades de banda de upload u, que assumimos estarem ordenadas de forma decrescente $u_1 > u_2 > u_3> uN$,(Xu:2013) e download d que variam com o tempo, para guardar e compartilhar conteúdo com a comunidade.
+\newcommand{\vetu}{$u_i=(u_1,u_2,\ldots,u_n)$}
+Neste modelo assumimos que uma rede P2P com N pares apoia um servidor na distribuição de segmentos de vídeos em um sistema CDN-P2P, que distribui vídeos sob demanda por meio de streaming adaptativo, de modo que, é necessário decidir quais segmentos e de quais versões serão baixados, tal decisão deve considerar a melhora na percepção da qualidade do vídeo pelo usuário e também a diminuição da carga sobre o servidor, cada par tem espaço de armazenamento c e diferentes disponibilidades de banda de upload u, que assumimos estarem ordenadas de forma decrescente \vetu,(Xu:2013) e download d que variam com o tempo, para guardar e compartilhar conteúdo com a comunidade.
 .
+\newcommand{\vetr}{$rj=(r_1,r_2,\ldots,r_J)$}
 
-
-Para este cenário, consideramos o problema de otimização da disponibilidade de segmentos de maior qualidade, em termos de bits recebidos na rede P2P,portanto, dado um conjunto S de  I pares e um conjunto J de versões de vídeo a taxas r decrescentes r1>r2>r3> - - - rj de um vídeo v (Tian:2013), é necessário decidir quantas cópias do segmento rjh serão criadas na comunidade, para que se mantenha ou diminua a carga sobre o servidor e considere a melhor percepção da qualidade de vídeo para o usuário dentro do swarm, conforme cenário ilustrado na figura 1.
+Para este cenário, consideramos o problema de otimização da disponibilidade de segmentos de maior qualidade, em termos de bits recebidos na rede P2P,portanto, dado um conjunto S de  I pares e um conjunto J de versões de vídeo a taxas r decrescentes \vetr de um vídeo v (Tian:2013), é necessário decidir quantas cópias do segmento rjh serão criadas na comunidade, para que se mantenha ou diminua a carga sobre o servidor e considere a melhor percepção da qualidade de vídeo para o usuário dentro do swarm, conforme cenário ilustrado na figura 1.
 
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``algoritmo''
