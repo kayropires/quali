@@ -658,6 +658,9 @@ Keywords: Keyword1. Keyword2. Keyword3. Etc.
 %
 %-------------------------------------------------------------------------
 \chapter{Introdução}
+
+Em 2019 o trafego de vídeo na Internet será 80\% de todo trafego consumido, sendo produzido aproximadamente um milhão de minutos de vídeo a cada segundo[CISCO,2015].
+
 Este \textit{template} apresenta as regras básicas para a elaboração do trabalho segundo as normas ABNT. Estas regras devem ser seguidas rigorosamente a fim de que o mesmo possa receber sua ficha catalográfica e ser posteriormente aprovado para publicação na Biblioteca Digital de Teses e Dissertações (BDTD) da USP. Qualquer desvio realizado nas configurações e recomendações deste \textit{template} poderá causar atrasos nesses processos, uma vez que o texto precisará ser corrigido antes. 
 
 Além das regras básicas previstas aqui, solicita-se consultar outros detalhes da norma ABNT sempre que se desejar inserir ou configurar algum elemento não previsto aqui. Ou seja, mesmo que este \textit{template} não preveja as demais regras ABNT, por ser uma visão simplificada, ainda assim elas precisam ser seguidas. O anexo \ref{anexoA} deste documento apresenta um resumo das normas ABNT, mas ainda assim também não completo.
@@ -817,7 +820,8 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 
 \section{Descrição do Problema}
  
-Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
+A internet praticamente dobra a cada dois anos e meio em tamanho e escala e o serviço mais proeminente nesta, é o tráfego de vídeos, que representa 66\% do tráfego de dados, como desenvolver e operar estes serviços visando a qualidade na experiência do usuário, sem comprometer o fluxo da rede e reduzir custos?
+
 
 A figura \ref{fig:figura-exemplo2} é um exemplo de como apresentar ilustrações de acordo com essa norma. Qualquer outra ilustração deve ser apresentada de forma similar, mudando apenas o prefixo do título e a numeração. Veja mais detalhes no anexo \ref{anexoA} deste documento.
 
@@ -872,7 +876,9 @@ A figura \ref{fig:figura-exemplo3} é um exemplo de como apresentar ilustraçõe
 
 \subsection{Objetivo Geral}
 
-Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
+Propor e avaliar políticas de escalonamento de segmentos integradas a uma técnica de gerenciamento de buffer em redes P2P, considerando a distribuição de vídeos sob demanda por meio de streaming adaptativo que reduza a carga de trabalho do servidor, mantenha o fluxo da rede e ofereça maior qualidade em termos de bits recebidos para os vídeos baixados pelo usuário.
+
+
 
 A tabela \ref{tab:ExemploDeTabela3} é um exemplo de como apresentar tabelas de acordo com essa norma. Veja mais detalhes no anexo \ref{anexoA} deste documento.
 
@@ -1076,18 +1082,27 @@ Sujeito a:
 Porém, removida a restrição de integralidade, é possível desenvolver uma metodologia para determinar um limite superior na distribuição de conteúdo por meio do streaming adaptativo.
 Adotamos que o vídeo $v$ é dividido em $J$ versões e cada versão é dividida em $H$ segmentos e que determinado $M$ de segmentos são necessários para reconstruir o vídeo. O tamanho de cada segmento $l$ é determinado por $l$=$L_j$/$M$, onde $L_j$ é o tamanho do vídeo na versão $j$.
 Sobre esta análise, assumisse que os pares estão ativos na comunidade com probabilidade homogênea, $p_i=p$ para todos os pares.
-Nos referimos ao h-ézimo segmento da versão $j$ como \veth. Para uma atribuição fixa de cópias aos pares. Dado $B_h$ ser o tamanho em bytes das réplicas dos $h_j$ segmentos armazenados na comunidade, Temos:
+Nos referimos ao h-ésimo segmento da versão $j$ como \veth. Para uma atribuição fixa de cópias aos pares. Dado $B_h$ ser o tamanho em bytes das réplicas dos $h_j$ segmentos armazenados na comunidade, Temos:
 
 % Dado $n_{hj}$ ser o número de réplicas do segmento $h_j$ armazenados na comunidade e $B_h$ ser o tamanho em bytes de  $n_{hj}$, Temos:
 \begin{equation}
-Max  \ \ Bh=\sum_{j=1}^{J}\sum_{h=1}^{H}\frac{Lj}{M}
+Max  \ \ Bh=\sum_{j=1}^{J}\sum_{h=1}^{H}l_{jh}
 \end{equation}\newline
 $\forall j \in J$, $\forall h \in H.$
 \newline
 Sujeito \ a:
 \begin{equation}
-\sum_{i=1}^{I}xihj\frac{Lj}{M} \leq S ,\ \forall i \in I
-\end{equation}A latência X dos m segmentos é menor ou igual ao tamanho da janela de tempo W.
+\sum_{i=1}^{I}\sum_{j=1}^{J}\sum_{h=1}^{H}x_{ijh}l_{jh} \leq S ,\ \forall i \in I
+\end{equation}
+\begin{equation}
+\sum_{i=1}^{I}\sum_{j=1}^{J}x_{ijh} \leq 1 ,\ h = 1, \dots, H
+\end{equation}
+
+\begin{equation}
+\sum_{j=1}^J\sum_{h=1}^{H}x_{ijh}\frac{l_{jh}}{U_i} \leq W ,i = 1, \dots, I
+\end{equation}
+
+A latência X dos m segmentos é menor ou igual ao tamanho da janela de tempo W.
 \begin{equation}
 X_m \leq W
 \end{equation}
