@@ -976,7 +976,7 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 
  	 	Variáveis:
 \begin{description}
-\item[n] 	é o número de pares no sistema.
+\item[N] 	é o número de pares no sistema.
 \item[v] 	é o único vídeo que será distribuído, v=1.
 \item[H] 	é o número de segmentos do filme. 
 \item[T] 	é o tempo de playback do filme \textit{v}.
@@ -985,12 +985,12 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 \item[u$_s$] é a capacidade de upload do servidor
 \item[d] 	é a capacidade de download do par i
 \item[X] 	é tempo de latência antes da visualização do objeto.
-\item[h$_j$ $_v$] 	é o h-ézimo segmento na versão \textit{j} do filme \textit{v}  ,todo segmento na versão j tem o mesmo tamanho e duração.
+\item[h$_j$] 	é o h-ézimo segmento na versão \textit{j} do filme \textit{v}  ,todo segmento na versão j tem o mesmo tamanho e duração.
 \item[L] 	é o tamanho do vídeo
 \item[l] 	é o tamanho do segmento de vídeo
 \item[S$_i$] 	é a capacidade de armazenamento par i
 \item[S] 	é a capacidade de armazenamento total do swarm
-\item[W] 	tamanho da janela de tempo para download de H segmentos
+\item[W] 	tamanho da janela de tempo para download de $M$ segmentos de $H$
 \item[b]  	é a taxa de visualização
 \item[J]  	é o número de versões
 \item[P]  	é um swarm ( conjunto de pares ).
@@ -1068,20 +1068,30 @@ n_{v}=\sum_{i=1}^{I}x_{iv}
 Sujeito a:
 
 \begin{equation}
-  \sum_{v=1}^{v}L_{v}x_{iv}\leq S, \forall i\in I
+  \sum_{i=1}^{I}L_{v}x_{iv}\leq S, \forall i\in I
 	\label{eq:equacao-exemplo3}
 \end{equation}
 
-
+\newcommand{\veth}{$h_{j}=(h_{1j},h_{2j},h_{3j},\ldots,H_j)$}
 Porém, removida a restrição de integralidade, é possível desenvolver uma metodologia para determinar um limite superior na distribuição de conteúdo por meio do streaming adaptativo.
-Adotamos que o vídeo v é dividido em J versões e cada versão é dividida H segmentos e que determinado M de segmentos são necessários para reconstruir o vídeo. O tamanho de cada segmento l é determinado por l=Lj/M, onde Lj é o tamanho da versão j.
-Sobre esta análise, assumisse que os pares estão ativos na comunidade com probabilidade homogênea, pi=p para todos os pares.
-Nos referimos ao h-ézimo segmento da versão j como jh, h=1,...,H. Para uma atribuição fixa de cópias aos pares. Dado Njh ser o número de réplicas do segmento jh armazenados na comunidade, Temos:
+Adotamos que o vídeo $v$ é dividido em $J$ versões e cada versão é dividida em $H$ segmentos e que determinado $M$ de segmentos são necessários para reconstruir o vídeo. O tamanho de cada segmento $l$ é determinado por $l$=$L_j$/$M$, onde $L_j$ é o tamanho do vídeo na versão $j$.
+Sobre esta análise, assumisse que os pares estão ativos na comunidade com probabilidade homogênea, $p_i=p$ para todos os pares.
+Nos referimos ao h-ézimo segmento da versão $j$ como \veth. Para uma atribuição fixa de cópias aos pares. Dado $B_h$ ser o tamanho em bytes das réplicas dos $h_j$ segmentos armazenados na comunidade, Temos:
 
+% Dado $n_{hj}$ ser o número de réplicas do segmento $h_j$ armazenados na comunidade e $B_h$ ser o tamanho em bytes de  $n_{hj}$, Temos:
 \begin{equation}
-  \sum_{j=1}^{J}\sum_{h=1}^{H}\frac{Lj}{Mj}n_{jh}\leq S
-	\label{eq:equacao-exemplo4}
+Max  \ \ Bh=\sum_{j=1}^{J}\sum_{h=1}^{H}\frac{Lj}{M}
+\end{equation}\newline
+$\forall j \in J$, $\forall h \in H.$
+\newline
+Sujeito \ a:
+\begin{equation}
+\sum_{i=1}^{I}xihj\frac{Lj}{M} \leq S ,\ \forall i \in I
 \end{equation}
+% \begin{equation}
+%   \sum_{j=1}^{J}\sum_{h=1}^{H}\frac{Lj}{M}n_{jh}\leq S
+% 	\label{eq:equacao-exemplo4}
+% \end{equation}
 
 
 \subsection{Streaming adaptativo}
