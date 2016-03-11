@@ -660,7 +660,11 @@ Keywords: Keyword1. Keyword2. Keyword3. Etc.
 %-------------------------------------------------------------------------
 \chapter{Introdução}
 
-Em 2019 o trafego de vídeo na Internet será 80\% de todo trafego consumido, sendo produzido aproximadamente um milhão de minutos de vídeo a cada segundo[CISCO,2015].
+Em 2019 o trafego de vídeo na Internet será 80\% de todo trafego consumido, sendo produzido aproximadamente um milhão de minutos de vídeo a cada segundo[CISCO,2015]. Para reduzir a carga sobre as redes e melhorar a qualidade do serviço, provedores de conteúdo e operadores de rede tentam desagregar o tráfego replicando seus dados em diversos pontos das redes, reduzindo a distância entre esses dados e seus usuários. Nos últimos anos temos visto, ao longo da crescente popularidade dos vídeos na Internet, um aumento do tráfego servido por Redes de Distribuição de Conteúdo (CDNs) [7],[8]. 
+Esses tipos de redes replicam o conteúdo entre os seus servidores e os fornecem a usuários finais a partir do servidor mais próximo. CDNs distribuem grande parte do tráfego total da Internet: a estimativa varia de 15\% a 30\% de todo o tráfego da Web em todo o mundo para uma única popular CDN. 
+CDNs tem problema de escalabilidade e custo, então para garantir o aumento/prevalência da distribuição de conteúdo multimídia, estudos apontam como solução escalável e de baixo custo o apoio de redes P2P na distribuição deste conteúdo [18].
+Combinando as arquiteturas CDN e P2P em um sistema híbrido; teórica e praticamente tem se mostrado como um sistema factível, menos custoso e escalável. Segundo[15], é possível com o uso de redes P2P em apoio a CDNs na distribuição de conteúdo, uma redução de carga de 30\%-40\% sobre o servidor da CDN na distribuição de conteúdo moderadamente popular.
+Assim, torna-se importante o estudo de soluções que considerem o streaming adaptativo na distribuição de conteúdo multimídia
 
 Este \textit{template} apresenta as regras básicas para a elaboração do trabalho segundo as normas ABNT. Estas regras devem ser seguidas rigorosamente a fim de que o mesmo possa receber sua ficha catalográfica e ser posteriormente aprovado para publicação na Biblioteca Digital de Teses e Dissertações (BDTD) da USP. Qualquer desvio realizado nas configurações e recomendações deste \textit{template} poderá causar atrasos nesses processos, uma vez que o texto precisará ser corrigido antes. 
 
@@ -821,7 +825,7 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 
 \section{Descrição do Problema}
  
-A internet praticamente dobra a cada dois anos e meio em tamanho e escala e o serviço mais proeminente nesta, é o tráfego de vídeos, que representa 66\% do tráfego de dados, como desenvolver e operar estes serviços visando a qualidade na experiência do usuário, sem comprometer o fluxo da rede e reduzir custos?
+A internet praticamente dobra a cada dois anos e meio em tamanho e escala e o serviço mais proeminente nesta, é o tráfego de vídeos, que representa 66\% do tráfego de dados,de modo que ,dificuldades em minimizar a carga sobre o servidor e melhorar a qualidade de vídeos distribuídos por meio de streaming adaptativo em redes P2P que apoiam CDNs, é uma realidade enfrentada por pesquisadores da área de computação,  como desenvolver e operar estes serviços visando melhorar a qualidade de vídeos nas redes P2P, sem comprometer o fluxo da rede e reduzir a carga sobre o servidor?
 
 
 A figura \ref{fig:figura-exemplo2} é um exemplo de como apresentar ilustrações de acordo com essa norma. Qualquer outra ilustração deve ser apresentada de forma similar, mudando apenas o prefixo do título e a numeração. Veja mais detalhes no anexo \ref{anexoA} deste documento.
@@ -838,7 +842,11 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 
 \subsection{Motivação}
 
-Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
+Relatórios indicam que o Netflix, uma aplicação de distribuição de vídeo sob-demanda, nos Estados Unidos é a aplicação que domina o tráfego nas infraestruturas de rede cabeadas. [22]. O YouTube, também uma aplicação de distribuição de vídeo sob-demanda, cujo conteúdo é produzido por seus usuários e de acesso gratuito, é a segunda aplicação em geração de tráfego nas redes cabeadas da Europa. Na Ásia o YouTube é a aplicação que mais gera tráfego nas infra-estruturas.[23]
+Os mashups são aplicações da Web 2.0 formadas a partir da composição de recursos da própria Web [25](Ex: Facebook) , também contribuem para a proliferação de conteúdo multimídia. Até 2016 os vídeos representarão 66\% do tráfego de dados na internet segundo[19].
+Para satisfazer a demanda de tais serviços, redes de distribuição de conteúdo (CDNs) são projetadas sobre as infraestruturas de telecomunicações, contudo devido ao enorme custo dos equipamentos para armazenamento e distribuição desse conteúdo, tem sido dada renovada atenção das indústrias de tecnologias de informação e comunicação(TICs) para estudos no desenvolvimento e operação destas redes que busquem incluir maior eficiência na distribuição desse tipo de conteúdo com o apoio de redes P2P.
+A motivação desta proposta de trabalho é investigar  um modelo de distribuição de vídeo sob demanda por meio de streaming adaptativo em redes CDN-P2P que minimize o custo sobre o servidor e melhore a qualidade de vídeo em termos de bits recebidos no conteúdo compartilhado em redes P2P que apoiam CDNs na distribuição deste conteúdo.
+
 
 A tabela \ref{tab:ExemploDeTabela2} é outro exemplo de como apresentar tabelas de acordo com essa norma. Veja mais detalhes no anexo \ref{anexoA} deste documento.
 
@@ -914,6 +922,15 @@ A figura \ref{fig:figura-exemplo4} é um exemplo de como apresentar ilustraçõe
 Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
 \section{Objetivos específicos}
+
+Os objetivos específicos que direcionam este trabalho são:
+
+\begin{itemize}
+\item	Identificar o estado da arte no uso do streaming adaptativo na distribuição de conteúdo multimídia na internet.
+\item 	Propor melhorias nas técnicas identificadas e definir ferramentas e metodologias para desenvolvimento do trabalho;
+\item 	Experimentar em um estudo de caso, por meio de um simulador, um modelo de distribuição de conteúdo por meio de streaming adaptativo que minimize o custo de transmissão sobre o servidor e melhore a qualidade em termos de bits recebidos nos vídeos compartilhados em redes CDN-P2P;
+\item 	Avaliar o modelo proposto analisando numericamente os custos sobre o servidor e a melhoria na qualidade do conteúdo de vídeo, comparando com modelos que representam o estado da arte na distribuição de conteúdo com o uso de streaming adaptativo em redes P2P que apoiam CDNs;
+\end{itemize}
 
 Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
@@ -1051,9 +1068,12 @@ Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de
 
 \chapter{Trabalhos Relacionados}
 
-Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
+Neste capítulo apresenta-se as tradicionais arquiteturas de redes de distribuição de conteúdo e a atual uso do streaming adaptativo dinâmico nestes cenários,na seção 3.1 encontram-se os trabalhos que tratam streaming adaptativo em Redes de Distribuição de Conteúdo ( CDNs), dada sua importância na distribuição de conteúdo, em que apenas uma CDN como a Akamai, é responsável por 30\% do tráfego global de conteúdo.Na Seção 3.2 mostra-se os trabalhos que abordam o streaming adaptativo em redes P2P( peer to peer ), que revolucionaram o compartilhamento de conteúdo na ultima década, mas que ainda não são largamente explorados comercialmente. Na seção 3.3, trata-se do streaming adaptativo em Redes Híbridas ( CDN-P2P), que são apontadas como soluções factíveis e menos custosas em relação a distribuição de conteúdo. Na seção 3.4 trata-se do estado da arte dos modelos de distribuição de conteúdo e na seção 3.5, faz-se as considerações finais sobre o capítulo.
 
-Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
+
+% Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
+
+% Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
 \section{Streaming Adaptativo em Redes de Distribuição de Conteúdo.}
 
