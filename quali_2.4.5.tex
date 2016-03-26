@@ -1025,7 +1025,12 @@ O Capítulo 5 apresenta as considerações deste trabalho, onde serão descritas
 
 % Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
-\subsection{Arquitetura de Redes de Distribuição de Conteúdo ( CDNs)}
+
+\subsection{Principais Métodos de transmissão de vídeo}
+
+Os principais métodos de distribuição de vídeo são três: streaming tradicional, download progressivo e streaming adaptativo. No streaming tradicional o arquivo  é dividido em pedaços menores e sua reprodução é individual e contínua a medida que cada pedaço é baixado. No download progressivo o vídeo é dividido em segmentos e ao longo de toda a  sessão  apenas uma taxa de bits é selecionada, os segmentos são armazenados no cliente dando vazão ao conteúdo, com a piora das condições da rede podem ocorrer interrupções e congelamentos na reprodução do vídeo.
+
+No streaming adaptativo o vídeo é codificado a diferentes taxas de bits  criando diferentes versões desse vídeo, com o mesmo tempo de playback, cada versão é dividida em segmentos de mesma duração. Chama-se representação o conjunto de características do versionamento de um vídeo, tais como, o número de versões, a quantidade, o tamanho e duração dos segmentos. Nesta abordagem a transmissão é contínua e o conteúdo é descartado após ser apresentado, mas a característica fundamental é adaptar a taxa de bits do vídeo ao longo da sessão de acordo com as variações das condições da rede . Fatores como largura de banda, vazão e buffer são avaliados para um melhor ajuste da taxa de bits, proporcionando continuidade ao fluxo de vídeo e uma melhor experiência de visualização ao usuario.(SEUFERT et al., 2013).
 
 % Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
@@ -1053,7 +1058,7 @@ O Capítulo 5 apresenta as considerações deste trabalho, onde serão descritas
 
 % Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
-\subsection{Arquitetura Par-a-Par}
+% \subsection{Arquitetura Par-a-Par}
 
 % Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
@@ -1089,7 +1094,7 @@ Neste capítulo apresenta-se as tradicionais arquiteturas de redes de distribui�
 
 % Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
-\section{Streaming Adaptativo em Redes de Distribuição de Conteúdo.}
+% \section{Streaming Adaptativo em Redes de Distribuição de Conteúdo.}
 
 
 
@@ -1112,6 +1117,12 @@ Neste capítulo apresenta-se as tradicionais arquiteturas de redes de distribui�
 
 % Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
+\section{Streaming Adaptativo em redes híbridas CDN-P2P}
+
+%Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
+
+% Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
+
 \section{Streaming adaptativo em redes P2P}
 
 \textbf{Capacity Analysis of Peer-to-Peer Adaptive Streaming}
@@ -1127,11 +1138,7 @@ Por meio de análise e simulação apontam que o uso do streaming adaptativo em 
 
 % Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
 
-\section{Streaming Adaptativo em redes híbridas CDN-P2P}
-
-%Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
-
-% Texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo, texto de exemplo.
+%\section{
 
 \section{Políticas de Gerenciamento de objetos em redes CDN-P2P}
 
@@ -1144,37 +1151,49 @@ Por meio de análise e simulação apontam que o uso do streaming adaptativo em 
 
 Os trabalhos correlatos aqui apresentados deixam algumas lacunas deste cenário de redes de distribuição de conteúdo multimídia, que considere melhora na qualidade do conteúdo de vídeo, em comunidades P2P que apoiam CDNs na distribuição de vídeos sob demanda por meio de streaming adaptativo. Segundo os próprios autores podem ser explorados em trabalhos futuros, dessa maneira,pretende-se ao final deste trabalho, apresentar um modelo de distribuição de conteúdo que busque  minimizar o custo sobre o servidor na distribuição de conteúdo multimídia em redes CDN-P2P, considerando melhor qualidade de vídeo em termos de bits recebidos no download ou substituição de vídeos nos pares de redes P2P.
 
-\chapter{Teoria de Otimização}
+\chapter{Controle de Replicação em uma CDN-P2P que distribui Vídeo ABR}
+
+%\newcommand{\vetu}{$u_i=(u_1,u_2,\ldots,u_n)$}
+Neste capítulo apresenta-se o problema da replicação de conteúdo em uma rede CDN-P2P dedicada a distribuição de vídeos com qualidades adaptáveis as condições de rede. Assume-se que a rede P2P, com $N$ pares, apoia a distribuição de um vídeo feita pelos servidores da CDN. A Rede P2P implementa o protocolo bittorrent e por isso os pares envolvidos na distribuição de um vídeo $v$ formam um swarming $P$ em torno de $v$.
+
+Os pares que formam o swarming $P$ acessam o vídeo considerando que o fluxo de bits pode ser adaptado as condições da rede. Em outras palavras, o vídeo distribuído nesse sistema foi versionado com diferentes taxas de bits $(r_1,r_2,\ldots,r_J)$, i.e. qualidades, e cada versão foi fragmentada e alinhada no tempo, permitindo o acesso, a qualquer momento, das qualidades disponíveis. O acesso as diferentes qualidades é feita a partir de uma playlist $Z$, e um algoritmo de seleção deve escolher, em um determinado instante $t$, qual é a qualidade do próximo segmento a ser baixado. Essa decisão deve considerar os recursos de transmissão disponível em uma janela de tempo $W_i$ e que o vídeo precisa ser servido com a melhor qualidade possível. O recurso de transmissão de um par $i$ é limitado e definido por suas taxas de upload $u_i$ e download $d_i$, bem como a sua capacidade de armazenamento $S_i$.  A Figura \ref{fig:StreamingAdaptativo} mostra os elementos e a dinâmica descrita anteriormente.
+
+\begin{figure}[H]% H manda colocar exatamente nessa posição no texto (relativa aos parágrafos anterior e posterior)
+	\centering
+i	\includegraphics[height=5cm,width=0.8\textwidth]{figuras/Jversoes.png}
+ 	 \caption{Streaming adaptativo em uma rede P2P}
+	\label{fig:StreamingAdaptativo}
+  %\source{Autor, 2016}
+\end{figure}
+
+Neste cenário, considera-se que os pares no swarming estão desejosos em compartilhar o conteúdo injetado no par por uma política de replicação pró-ativa implementada no sistema. O problema modelado a seguir considera 
+
+o problema de otimização da disponibilidade de segmentos de maior qualidade, em termos de bits recebidos na rede P2P. Em um Swarming $P$ de $N$ pares e uma playlist $Z$ com $J$ versões de vídeo com $r$ taxas decrescentes $r_j=(r_1,r_2,\ldots,r_J)$ de um vídeo $v$ a ser distribuido na comunidade, é necessário decidir quantas cópias do segmento $h_j$ serão criadas, para que se mantenha ou diminua a carga sobre o servidor e considere a melhor percepção da qualidade de vídeo para o usuário dentro do swarm.
 
 
- 	 	Variáveis:
+
 \begin{description}
-\item[N] 	é o número de pares no sistema.
-\item[v] 	é o único vídeo que será distribuído, v=1.
-\item[H] 	é o número de segmentos do filme. 
-\item[T] 	é o tempo de playback do filme \textit{v}.
-\item[t] 	é o tempo de duração do segmento de vídeo.
-\item[u$_i$] é a capacidade de upload do par i.
-\item[u$_s$] é a capacidade de upload do servidor.
+\item[N] 	é o número de pares no swarming.
+\item[H] 	é o número de segmentos do vídeo. 
+\item[T] 	é o tempo de playback do vídeo $v$.
+\item[t] 	é o tempo de duração dos segmentos do vídeo $v$.
+\item[$u_i$] é a capacidade de upload do par i.
+\item[$u_s$] é a capacidade de upload do servidor.
 \item[d] 	é a capacidade de download do par i.
 \item[X] 	é tempo de latência antes da visualização do objeto.
-\item[h$_j$] 	é o h-ézimo segmento na versão \textit{j} do filme \textit{v}  ,todo segmento na versão j tem o mesmo tamanho e duração.
+\item[$h_j$] 	é o h-ésimo segmento na versão \textit{j} do filme \textit{v}  ,todo segmento na versão $j$ tem o mesmo tamanho e duração.
 \item[L] 	é o tamanho do vídeo.
 \item[l] 	é o tamanho do segmento de vídeo.
-\item[S$_i$] 	é a capacidade de armazenamento par i.
+\item[$S_i$] 	é a capacidade de armazenamento par $i$.
 \item[S] 	é a capacidade de armazenamento total do swarm.
 \item[W] 	tamanho da janela de tempo para download de $M$ segmentos.
 \item[b]  	é a taxa de visualização.
-\item[J]  	é o número de versões.
+\item[J]  	é o número de versões na playlist.
 \item[P]  	é um swarm ( conjunto de pares ).
-
+\item [Z]	é a playlist com J versões.
+\item[$B_h$]	é o tamanho em bytes dos $h$ segmentos.
 \end{description}
-\newcommand{\vetu}{$u_i=(u_1,u_2,\ldots,u_n)$}
-Neste modelo assumimos que uma rede P2P com $N$ pares apoia um servidor na distribuição de segmentos de vídeos em um sistema CDN-P2P, que distribui vídeos sob demanda por meio de streaming adaptativo, de modo que, é necessário decidir quais segmentos e de quais versões serão baixados, tal decisão deve considerar a melhora na percepção da qualidade do vídeo pelo usuário e também a diminuição da carga sobre o servidor, cada par tem espaço de armazenamento $c$ e diferentes disponibilidades de banda de upload $u$, que assumimos estarem ordenadas de forma decrescente \vetu,(Xu:2013) e download $d$ que variam com o tempo, para guardar e compartilhar conteúdo com a comunidade.
-.
-\newcommand{\vetr}{$rj=(r_1,r_2,\ldots,r_J)$}
 
-Para este cenário, consideramos o problema de otimização da disponibilidade de segmentos de maior qualidade, em termos de bits recebidos na rede P2P,portanto, dado um Swarm $P$ de  $I$ pares e um conjunto $J$ de versões de vídeo a taxas $r$ decrescentes \vetr de um vídeo $v$ a ser distribuido na comunidade(Tian:2013), é necessário decidir quantas cópias do segmento $h_j$ serão criadas, para que se mantenha ou diminua a carga sobre o servidor e considere a melhor percepção da qualidade de vídeo para o usuário dentro do swarm, conforme cenário ilustrado na figura 1.
 
 %-------------------------------------------------------------------------
 % Comentário adicional do PPgSI - Informações sobre ``algoritmo''
@@ -1200,39 +1219,29 @@ Para este cenário, consideramos o problema de otimização da disponibilidade d
 %
 %-------------------------------------------------------------------------
 
-\begin{figure}[H]% H manda colocar exatamente nessa posição no texto (relativa aos parágrafos anterior e posterior)
-	\centering
- 	  \caption{Streaming adaptativo em uma rede P2P}
-		\includegraphics{figuras/Jversoes.png}
-	%\label{figura1:Streaming adaptativo em uma rede P2P}
-  \source{Autor, 2016}
-\end{figure}
 
 
 
 
 \section{Modelo de Otimização}
 
-Na distribuição de vídeo em uma comunidade sem streaming adaptativo, o número de cópias de qualquer objeto é um inteiro a qualquer momento. Seja $x_{iv}$ uma variável zero-um a qual é igual a 1 se o par $i$ contém uma cópia do vídeo $v$ e 0 caso contrário.
-Dado: $S_i$= ser a capacidade em bytes de armazenamento do par $i$ e  $S$=capacidade total de armazenamento da comunidade, tem-se:
-\begin{equation}
-S=\sum_{i=1}^{I}Si,\forall i\in I
-\end{equation}
-%\begin{equation}
-% \forall i\in I
-% \end{equation}
-% \begin{equation}
+Na distribuição de vídeo em uma comunidade SEM streaming adaptativo o número de cópias de qualquer objeto é um inteiro a qualquer momento. Seja $S_i$ a capacidade de armazenamento do par $i$, dada em bytes, então a capacidade total de armazenamento da comunidade $S$ é dada por:
 
+\begin{equation}
+S=\sum_{i=1}^{I}S_i
+\end{equation}
 
 	%\label{eq:equacao-exemplo1}
-
-
 
 % \begin{equation}
 %   Phit=1 -{v}q_{v}\prod_{i=1}^{I}(1-p_{i})^{x_{iv}}
 % 	\label{eq:equacao-exemplo2}
 % \end{equation}
+
+Seja $x_{iv}$ uma variável decisão que assume o valor 1 se o par $i$ contém uma cópia do vídeo $v$ e 0(zero) caso contrário.
+
 Dado que $n_v$ é o número de réplicas do vídeo v, busca-se maximizar o número de cópias do vídeo:
+
 \begin{equation}
 %numero de copias do video v no swarm
 n_{v}=\sum_{i=1}^{I}x_{iv}
@@ -1266,7 +1275,7 @@ Sujeito \ a:
 \end{equation}
 
 \begin{equation}
-\sum_{j=1}^J\sum_{h=1}^{H}x_{ijh}\frac{l_{jh}}{U_i} \leq W ,i = 1, \dots, I
+\sum_{j=1}^J\sum_{h=1}^{H}x_{ijh}\frac{l_{jh}}{U_i} \leq W_i ,i = 1, \dots, I
 \end{equation}
 
 A latência X dos m segmentos é menor ou igual ao tamanho da janela de tempo W.
@@ -1300,7 +1309,7 @@ Para escalonamento de download dos segmentos, um par usa políticas tais como ol
 
 \section{Políticas de escalonamento para downloads de segmentos.}
 
-Nosso objetivo é maximizar a quantidade de segmentos de maior qualidade entre os pares, para isso consideramos a taxa de bits, tamanho e duração do segmento, quanto ao par, consideramos a capacidade de armazenamento, banda de upload e download . Cada par mantém uma janela deslizante de tempo com segmentos para fazer o download, avançando a medida que o vídeo é reproduzido (Tian et al., 2013), portanto, é necessário escalonar dentro dessa janela de tempo, quais segmentos e suas respectivas taxas j do vídeo v serão baixados, de maneira que mantenha a maior qualidade, sem comprometer o fluxo de reprodução, a figura 2 ilustra esse cenário( construir a figura ).
+Nosso objetivo é maximizar a quantidade de segmentos de maior qualidade entre os pares, para isso consideramos a taxa de bits, tamanho e duração do segmento, quanto ao par, consideramos a capacidade de armazenamento, banda de upload e download . Cada par mantém uma janela deslizante de tempo com segmentos para fazer o download, avançando a medida que o vídeo é reproduzido (Tian et al., 2013), portanto, é necessário escalonar dentro dessa janela de tempo, quais segmentos e suas respectivas taxas $j$ do vídeo $v$ serão baixados, de maneira que mantenha a maior qualidade, sem comprometer o fluxo de reprodução, a figura 2 ilustra esse cenário( construir a figura ).
 
 \begin{figure}[H]% H manda colocar exatamente nessa posição no texto (relativa aos parágrafos anterior e posterior)
 	\centering
@@ -1310,9 +1319,9 @@ Nosso objetivo é maximizar a quantidade de segmentos de maior qualidade entre o
   \source{Autor, 2016}
 \end{figure}
 
-Uma janela deslizante de tempo, é o intervalo de tempo W=bd/l, onde b é a taxa de visualização, d é a taxa de download e l é o tamanho do segmento, a taxa de download deve ser no mínimo igual a taxa de transmissão do objeto, para que o par tenha capacidade consumir a respectiva taxa produzida; esta janela possui os próximos h segmentos a serem baixados e avança a medida que estes são consumidos, segmentos que chegam após seu tempo de visualização podem ser descartados; além disso, evita-se baixar segmentos fora da janela de tempo, pois isso poderia degradar a continuidade do fluxo, uma vez que segmentos dentro da janela estão mais próximos de serem executados,  o problema desta restrição é a limitação do numero de segmentos que podem ser baixados e de uma tendência de download sequencial, em detrimento de outras politicas como por exemplo o rared-first utilizado no Bit-torrent, que prioriza o download de segmentos mais raros dentro do swarm.
+Uma janela deslizante de tempo é o intervalo de tempo $W=bd/l$, onde $b$ é a taxa de visualização, $d$ é a taxa de download e $l$ é o tamanho do segmento. A taxa de download deve ser no mínimo igual a taxa de transmissão do objeto, para que o par tenha capacidade consumir a respectiva taxa produzida; esta janela possui os próximos $h$ segmentos a serem baixados e avança a medida que estes são consumidos, segmentos que chegam após seu tempo de visualização podem ser descartados; além disso, evita-se baixar segmentos fora da janela de tempo, pois isso poderia degradar a continuidade do fluxo, uma vez que segmentos dentro da janela estão mais próximos de serem executados,  o problema desta restrição é a limitação do numero de segmentos que podem ser baixados e de uma tendência de download sequencial, em detrimento de outras politicas como por exemplo o rared-first utilizado no Bit-torrent, que prioriza o download de segmentos mais raros dentro do swarm.
 
-Uma vez estabelecidas as representações de um vídeo com o número J de versões e de H segmentos, é necessário estabelecer políticas de escalonamento dentro da janela deslizante de tempo que busquem minimizar a carga sobre o servidor e maximizar os segmentos com maior qualidade em termos de bits recebidos dentro do swarm.
+Uma vez estabelecidas as representações de um vídeo com o número $J$ de versões e de $H$ segmentos, é necessário estabelecer políticas de escalonamento dentro da janela deslizante de tempo que busquem minimizar a carga sobre o servidor e maximizar os segmentos com maior qualidade em termos de bits recebidos dentro do swarm.
 
 \chapter{Conclusão}
 
