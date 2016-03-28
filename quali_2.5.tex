@@ -782,24 +782,30 @@ Os trabalhos correlatos aqui apresentados deixam algumas lacunas deste cenário 
 \chapter{Controle de Replicação em uma CDN-P2P que distribui Vídeo ABR}
 
 %\newcommand{\vetu}{$u_i=(u_1,u_2,\ldots,u_n)$}
-Neste capítulo a replicação controlada de conteúdo é caracterizada como um problema de programação linear Inteira. A replicação ocorre em uma rede CDN-P2P dedicada a distribuição de vídeos com taxas de consumo adaptável as condições de rede. Os $N$ pares que participam do swarming $P$, formando em torno do distribuição do vídeo $v$, aceitam compartilhar segmentos de $v$ replicados de forma pró ativa.
+Neste capítulo a replicação controlada de conteúdo é caracterizada como um problema de programação linear Inteira. A replicação ocorre em uma rede CDN-P2P dedicada a distribuição de vídeos com taxas de consumo adaptável as condições de rede. Os $N$ pares que participam do swarming $P$, formado em torno da distribuição do vídeo $v$, aceitam compartilhar segmentos de $v$ replicados de forma pró ativa e sob sua posse até um volume $s$.
 
-O vídeo $v$ é versionado com diferentes taxas de bits $(r_1,r_2,\ldots,r_J)$, i.e. qualidades, e cada versão é segmentada e alinhada no tempo, permitindo que os pares acessem, a qualquer momento, segmentos de qualidade distintas. As informações de todas as versões de $v$ encontra-se em uma playlist $Z$, repassada ao par $i$ quando este se junta ao swarming. Usando as informações em $Z$, um algoritmo de seleção deve escolher, em um determinado instante $t$, qual é a qualidade do próximo segmento a ser baixado. Essa decisão deve considerar as seguintes variáveis:
+O vídeo $v$ é versionado com diferentes taxas de bits $(r_1,r_2,\ldots,r_J)$, i.e. qualidades, e cada versão é segmentada e alinhada no tempo, gerando $H$ segmentos de duração $t$ por versão e permitindo que os pares acessem, segmentos de qualidade distintas. As informações de todas as versões de $v$ encontram-se em uma playlist $Z$, repassada ao par $i$ quando este se junta ao swarming. Usando as informações em $Z$, um algoritmo de seleção deve escolher, em um determinado instante $t$, qual é a qualidade do próximo segmento a ser baixado. Essa decisão deve considerar:
 \begin{itemize}
 \item os recursos de transmissão disponível;
-\item a continuidade da sessão de acesso;
+\item a continuidade da sessão de vídeo;
 \item a qualidade do segmento acessado;
 \end{itemize} 
 
-O recurso de transmissão de um par $i$ é limitado e definido por suas taxas de upload $u_i$ e download $d_i$. Em outras palavras, ao atuar como servidor no swarming, o par $i$ estará limitado no atendimento pela suas taxa de upload. E ao atuar como cliente, ele estará limitado por sua capacidade acesso a rede.
+O recurso de transmissão de um par $i$ é limitado e definido por suas taxas de upload $u_i$ e download $d_i$. Em outras palavras, ao atuar como servidor no swarming, o par $i$ estará limitado no atendimento pela suas taxa de upload $u_i$. E ao atuar como cliente, ele estará limitado por sua taxa de download $d_i$.
 
-A continuidade da sessão de acesso é impactada pelo conjunto de segmentos que devem estar disponíveis para a reprodução em um futuro breve. 
+A continuidade da sessão de acesso é impactada pela disponibilidade dos segmentos que têm tempo de reprodução definido na k-ésima janela de tempo $w_i(k)$. Um mecanismo de janela deslizante é usado para definir $w_i(k)$:
 
-bem como a sua capacidade de armazenamento $S_i$.  A Figura \ref{fig:StreamingAdaptativo} mostra os elementos e a dinâmica descrita anteriormente.
+\begin{equation}
+w_i(k) = \frac{d_i\bar{D}_i(k-1)}{\bar{L}_i(k-1)} 
+\end{equation}
+
+\noindent $d_i$ é o atraso inicial da reprodução para o par $i$, e, para as últimas $k-1$ janelas, $\bar{D}_i(.)$ e $\bar{L}_i(.)$ são respectivamente a taxa média de consumo do vídeo e tamanho médio dos segmentos acessados.
+
+O algoritmo de escalonamento deve baixar os próximos segmentos com tempo de reprodução definido na janela $w_i(.)$, objetivando sempre os segmentos com maior taxa de bits, de forma a garantir a qualidade do fluxo.  A Figura \ref{fig:StreamingAdaptativo} mostra os elementos e a dinâmica descrita anteriormente.
 
 \begin{figure}[H]% H manda colocar exatamente nessa posição no texto (relativa aos parágrafos anterior e posterior)
 	\centering
-	\includegraphics[height=5cm,width=0.8\textwidth]{figuras/Jversoes.png}
+	\includegraphics[height=5cm,width=0.8\textwidth]{figuras/Streaming_swarm.png}
  	 \caption{Streaming adaptativo em uma rede P2P}
 	\label{fig:StreamingAdaptativo}
   %\source{Autor, 2016}
@@ -819,7 +825,7 @@ bem como a sua capacidade de armazenamento $S_i$.  A Figura \ref{fig:StreamingAd
 \item[X] 	é tempo de latência antes da visualização do objeto.
 \item[$h_j$] 	é o h-ésimo segmento na versão \textit{j} do filme \textit{v}  ,todo segmento na versão $j$ tem o mesmo tamanho e duração.
 \item[L] 	é o tamanho do vídeo.
-\item[l] 	é o tamanho do segmento de vídeo.
+\item[$l_{vj}$] 	é a duração do segmento de vídeo.
 \item[$S_i$] 	é a capacidade de armazenamento par $i$.
 \item[S] 	é a capacidade de armazenamento total do swarm.
 \item[W] 	tamanho da janela de tempo para download de $M$ segmentos.
@@ -878,12 +884,11 @@ Nos referimos ao h-ésimo segmento da versão $j$ como \veth. Para uma atribuiç
 % Dado $n_{hj}$ ser o número de réplicas do segmento $h_j$ armazenados na comunidade e $B_h$ ser o tamanho em bytes de  $n_{hj}$, Temos:
 \begin{equation}
 Max  \ \ B_h=\sum_{j=1}^{J}\sum_{h=1}^{H}l_{jh}
-\end{equation}\newline
-$\forall j \in J$, $\forall h \in H.$
-\newline
+\end{equation}
+
 Sujeito \ a:
 \begin{equation}
-\sum_{i=1}^{I}\sum_{j=1}^{J}\sum_{h=1}^{H}x_{ijh}l_{jh} \leq S ,\ \forall i \in I
+\sum_{i=1}^{I}\sum_{j=1}^{J}\sum_{h=1}^{H}x_{ijh}l_{jh} \leq S,
 \end{equation}
 \begin{equation}
 \sum_{i=1}^{I}\sum_{j=1}^{J}x_{ijh} \leq 1 ,\ h = 1, \dots, H
