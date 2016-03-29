@@ -754,26 +754,57 @@ No streaming adaptativo o vídeo é codificado a diferentes taxas de bits  crian
 
 \chapter{Trabalhos Relacionados}
 
-Neste capítulo apresenta-se as tradicionais arquiteturas de redes de distribuição de conteúdo e a atual uso do streaming adaptativo dinâmico nestes cenários,na seção 3.1 encontram-se os trabalhos que tratam streaming adaptativo em Redes de Distribuição de Conteúdo ( CDNs), dada sua importância na distribuição de conteúdo, em que apenas uma CDN como a Akamai, é responsável por 30\% do tráfego global de conteúdo.Na Seção 3.2 mostra-se os trabalhos que abordam o streaming adaptativo em redes P2P( peer to peer ), que revolucionaram o compartilhamento de conteúdo na ultima década, mas que ainda não são largamente explorados comercialmente. Na seção 3.3, trata-se do streaming adaptativo em Redes Híbridas ( CDN-P2P), que são apontadas como soluções factíveis e menos custosas em relação a distribuição de conteúdo. Na seção 3.4 trata-se do estado da arte dos modelos de distribuição de conteúdo e na seção 3.5, faz-se as considerações finais sobre o capítulo.
+Neste capítulo apresenta-se as tradicionais arquiteturas de redes de distribuição de conteúdo e a atual uso do streaming adaptativo dinâmico nestes cenários,na seção 3.1 encontram-se os trabalhos que tratam streaming adaptativo em Redes de Distribuição de Conteúdo ( CDNs), dada sua importância na distribuição de conteúdo, em que apenas uma CDN como a Akamai, é responsável por 30\% do tráfego global de conteúdo.Na Seção 3.2 mostra-se os trabalhos que abordam o streaming adaptativo em redes P2P( peer to peer ), que revolucionaram o compartilhamento de conteúdo na ultima década, mas que ainda não são largamente explorados comercialmente. Na seção 3.3, trata-se do streaming adaptativo em Redes Híbridas ( CDN-P2P), que são apontadas como soluções factíveis e menos custosas em relação a distribuição de conteúdo. Na seção 3.4 trata-se do estado da arte nas políticas de gerenciamento de conteúdo nas redes P2P,CDN-P2P e CDN e na seção 3.5, faz-se as considerações finais sobre o capítulo.
 
 
+\section{streaming adaptativo em Redes de Distribuição de Conteúdo ( CDNs)}
 
-\section{Streaming Adaptativo em redes híbridas CDN-P2P}
 
 
 \section{Streaming adaptativo em redes P2P}
 
-\textbf{Capacity Analysis of Peer-to-Peer Adaptive Streaming}
+\textbf{Mechanism Design for Dynamic P2P Streaming}
+\newline
 
+\textbf{Capacity Analysis of Peer-to-Peer Adaptive Streaming}
+\newline
 Os autores afirmam que o streaming adaptativo já é adotado como solução na distribuição de conteúdo, é natural incluir o P2P neste modelo de distribuição,
 de modo que, analisam o potencial uso do streaming adaptativo, tal como o DASH ( Dynamic Adaptive Streaming over HTTP ) em redes P2P, desenvolvem um modelo estocástico para avaliar a performance do streaming adaptativo em redes P2P em face das variações de banda e churn dos pares.
 Para maximizar o ganho, é desejável facilitar o compatilhamento P2P entre os pares que assistem versões diferentes do mesmo vídeo.
 Por meio de análise e simulação apontam que o uso do streaming adaptativo em redes P2P não só reduz a carga sobre o servidor, mas melhora a percepção do usuário sobre a qualidade do vídeo diante das dinâmicas variações de banda.
 
+\section{Streaming Adaptativo em redes híbridas CDN-P2P}
 
-\section{Políticas de Gerenciamento de objetos em redes CDN-P2P}
+\section{Políticas de Gerenciamento de conteúdo em redes P2P,CDN-P2P,CDN}
 
+\textbf{Optimizing File Availability in Peer-to-Peer Content Distribution}
+\newline
+Neste trabalho busca-se otimizar a disponibilidade de arquivos em uma comunidade P2P de pares com conexão intermitente, que cooperam entre si para compartilhar arquivos, dada a natureza desta conexão, os autores consideram três importantes desafios acerca do problema: Replicação, política de substituição de arquivos e balanceamento de carga. abordam algoritmos de replicação/substituição que trabalham em função da popularidade dos arquivos, incluem um algoritmo de gerenciamento de conteúdo chamado Top-K mais frequentemente requisitado e buscam um equilibrado balanceamento de carga por meio de duas abordagens, A fragmentação de arquivos e da abordagem chamada Overflow.
+
+No modelo de otimização os autores assumem que a popularidade dos arquivos e a probalidade do nó estar $up$ (ativo) na rede, são conhecidas a priori. Sendo $I$ o número de nós, dado $p_i$ e $S_i$, denotarem a probabilidade de estar $up$ e armazenamento compartilhado do nó $i$. Assumisse que os nós podem estar $up$ e $down$ independentemente,sendo $J$ o número de arquivos distintos, e dado $b_j$ e $q_j$ denotarem, o tamanho e probabilidade de requisição do j-ézimo arquivo.
+Desenvolveram primeiramente a teoria para arquivos fragmentação. Dado $Xij$ ser uma variável 0-1 (zero-um), onde é igual a 1 (um),se o nó $i$ contém a réplica do arquivo $j$, e 0 (zero), caso contrário. 
+
+A partir desses parâmetros, estabelecem um limite superior na propabilidade de acerto para todos os algoritmos de gerenciamento de conteúdo, conforme problema de maximização mostrada na equação (1) sujeito a (2):
+
+
+\begin{equation}
+P_{hit} = 1 -\sum_{j=}^{J}q_j\prod_{i=1}^{I}(1-p_i)^{x_{ij}}
+\end{equation}
+\newline
+Sujeito a:
+\newline
+\begin{equation}
+\sum_{j=}^{J}b_jx_{ij}\leq S_i, i=1,\dots,I
+\end{equation}
+\newline
+
+
+
+\textbf{Políticas de Gerenciamento de objetos em redes CDN-P2P}
+\newline
 (Libório, Melo ,Fonseca 2012) apresentam políticas de gerenciamento de objetos para melhorar a disponibilidade de conteúdo em sistemas CDN-P2P. Quatro políticas são propostas e avaliadas usando simulação com dados reais de coleções de vídeos do youtube. Em alguns casos as políticas propostas foram capazes de melhorar em mais de 70\% a disponibilidade de conteúdo comparada a disponibilidade proporcionada pela política LFU e mais de 50\% comparada a política GDSP.
+
+\textbf{Object Replication Strategies in Content Distribution Networks}
 
 \section{Considerações do Capitulo}
 
