@@ -715,8 +715,6 @@ O Capítulo 5 apresenta as considerações deste trabalho, onde serão descritas
 
 \chapter{Fundamentos Téoricos}
 
-
-
 \section{Distribuição de Conteúdo na Internet.}
 
  (Zhao, Mingchen et al. 2013) abordam as tradicionais arquiteturas adotadas para distribuição de conteúdo; Redes de distribuição de conteúdo (CDNs) em que os clientes baixam conteúdo de servidores dedicados e gerenciados centralmente e da arquitetura híbrida ou “peer assisted CDNs”.
@@ -779,24 +777,35 @@ Por meio de análise e simulação apontam que o uso do streaming adaptativo em 
 
 \textbf{Optimizing File Availability in Peer-to-Peer Content Distribution}
 \newline
-Neste trabalho busca-se otimizar a disponibilidade de arquivos em uma comunidade P2P de pares com conexão intermitente, que cooperam entre si para compartilhar arquivos, dada a natureza desta conexão, os autores consideram três importantes desafios acerca do problema: Replicação, política de substituição de arquivos e balanceamento de carga. abordam algoritmos de replicação/substituição que trabalham em função da popularidade dos arquivos, incluem um algoritmo de gerenciamento de conteúdo chamado Top-K mais frequentemente requisitado e buscam um equilibrado balanceamento de carga por meio de duas abordagens, A fragmentação de arquivos e da abordagem chamada Overflow.
+Neste trabalho busca-se otimizar a disponibilidade de arquivos em uma comunidade P2P de nós com conexão intermitente, que cooperam entre si para compartilhar arquivos, dada a natureza desta conexão, os autores consideram três importantes desafios acerca do problema: Replicação, política de substituição de arquivos e balanceamento de carga. abordam algoritmos de replicação/substituição que trabalham em função da popularidade dos arquivos, incluem um algoritmo de gerenciamento de conteúdo chamado Top-K mais frequentemente requisitado e buscam um equilibrado balanceamento de carga por meio de duas abordagens, A fragmentação de arquivos e da abordagem chamada Overflow.
 
 No modelo de otimização os autores assumem que a popularidade dos arquivos e a probalidade do nó estar $up$ (ativo) na rede, são conhecidas a priori. Sendo $I$ o número de nós, dado $p_i$ e $S_i$, denotarem a probabilidade de estar $up$ e armazenamento compartilhado do nó $i$. Assumisse que os nós podem estar $up$ e $down$ independentemente,sendo $J$ o número de arquivos distintos, e dado $b_j$ e $q_j$ denotarem, o tamanho e probabilidade de requisição do j-ézimo arquivo.
-Desenvolveram primeiramente a teoria para arquivos fragmentação. Dado $Xij$ ser uma variável 0-1 (zero-um), onde é igual a 1 (um),se o nó $i$ contém a réplica do arquivo $j$, e 0 (zero), caso contrário. 
+Desenvolveram primeiramente a teoria para arquivos sem fragmentação. Dado $Xij$ ser uma variável 0-1 (zero-um), onde é igual a 1 (um),se o nó $i$ contém a réplica do arquivo $j$, e 0 (zero), caso contrário. 
 
-A partir desses parâmetros, estabelecem um limite superior na propabilidade de acerto para todos os algoritmos de gerenciamento de conteúdo, conforme problema de maximização mostrada na equação (1) sujeito a (2):
-
+A partir desses parâmetros, estabelecem um limite superior na propabilidade de acerto para todos os algoritmos de gerenciamento de conteúdo, conforme problema de maximização mostrado na equação (1) sujeito a (2):
 
 \begin{equation}
 P_{hit} = 1 -\sum_{j=}^{J}q_j\prod_{i=1}^{I}(1-p_i)^{x_{ij}}
 \end{equation}
-\newline
+
 Sujeito a:
-\newline
+
 \begin{equation}
 \sum_{j=}^{J}b_jx_{ij}\leq S_i, i=1,\dots,I
 \end{equation}
 \newline
+
+Uma vez que os nós podem se conectar ou desconectar a qualquer momento, é preciso replicar o conteúdo para aumentar sua disponibilidade e consequentemente a confiança do serviço, os principais problemas enfrentados na replicação são os custos de criação e gerenciamento de réplicas, incluindo políticas de substituição de conteúdo.
+
+Os autores apresentam um conjunto de algoritmos para dinamicamente replicar e substituir arquivos em uma comunidade P2P, e em seguida removem a restrição de integralidade para oferecer um limite superior mais próximo do ótimo, que serve de limite para distribuição de arquivos inteiros e pedaços menores de arquivos,  Consistindo da teoria de replicação até a formulação da replicação ótima chamada, "Logarithmic Replication Rule", expressa na equação (3):
+
+\begin{equation}
+n_j^{*} = \frac{S}{B_L}+\frac{\sum_{l=1}^{L}b_lln(q_l/b_l)}{B_Lln(1-p)}+\frac{ln(q_j/b_j)}{ln(1/(1-p))}
+\end{equation}
+
+Para esta análise assumisse a probabilidade homogênea "up" para todos os nós,os quais, compartilham um determinado espaço de armazenamento e recursos de banda de upload com a comunidade,comunidade esta onde nós que são eleitos "winners", possuem uma tabela hash distribuida ( DHT- distributed hash table ) que pode ser usada e modificada afim de se obter os arquivos mais frequentemente requisitados ,a popularidade dos arquivos segue uma distribuição Zipf-like
+
+Por meio de simulação avalia-se os algoritmos propostos para replicação/substituição de arquivos, conclui-se que o algoritmo Top-k mais frequentemente requisitado quase sempre alcança performance ótima. e que a abordagem de fragmentação de arquivos, por si só melhora a distribuição do conteúdo, mas que pode ser ajustada com a abordagem overflow, que consiste em diminuir o número de requisições que um nó winner pode atender, forçando a busca em outros nós, que não possuindo o arquivo, o requisitam fora da rede, o armazenam e o fornecem ao nó requisitante,fazendo com que os arquivos sejam replicados nestes outros nós contribuindo diretamente para a distribuição do conteúdo.
 
 
 
