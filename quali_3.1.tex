@@ -201,9 +201,9 @@ Esses tipos de redes replicam o conteúdo entre os seus servidores e os fornecem
 CDNs tem problema de escalabilidade e custo, então para garantir o aumento/prevalência da distribuição de conteúdo multimídia, estudos apontam como solução escalável e de baixo custo o apoio de redes P2P na distribuição deste conteúdo [18].
 
 Combinando as arquiteturas CDN e P2P em um sistema híbrido; teórica e praticamente tem se mostrado como um sistema factível, menos custoso e escalável. Segundo[15], é possível com o uso de redes P2P em apoio a CDNs na distribuição de conteúdo, uma redução de carga de 30\%-40\% sobre o servidor da CDN na distribuição de conteúdo moderadamente popular.
-Por si só essas novas arquiteturas não resolvem de maneira ótima os problemas na distribuição de conteúdo, segundo (Ross), dada a natureza intermitente da conexão dos pares nas largas comunidades P2P, é necessário considerar o gerenciamento de conteúdo na replicação e substituição de arquivos para alcançar performance satisfatória.
+Por si só essas novas arquiteturas não resolvem de maneira ótima os problemas na distribuição de conteúdo, segundo \cite{Kangasharju2007}, dada a natureza intermitente da conexão dos pares nas largas comunidades P2P, é necessário considerar o gerenciamento de conteúdo na replicação e substituição de arquivos para alcançar performance satisfatória.
 
-Uma das propostas largamente adotadas por provedores de conteúdo é o streaming adaptativo,em que cada arquivo de vídeo no servidor é codificado em J versões a decrescentes taxas de bits, e cada versão é dividida em H segmentos (Tian et al., 2013), portanto, quando um cliente solicita um vídeo ao servidor, este precisa escalonar os hj-ézimos segmentos que melhor se adaptam as condições de transmissão da rede, as quais, variam em função do tempo, mantendo assim a continuidade do fluxo de transmissão.
+Uma das propostas largamente adotadas por provedores de conteúdo é o streaming adaptativo,em que cada arquivo de vídeo no servidor é codificado em J versões a decrescentes taxas de bits, e cada versão é dividida em H segmentos \cite{Tian2013}, portanto, quando um cliente solicita um vídeo ao servidor, este precisa escalonar os hj-ézimos segmentos que melhor se adaptam as condições de transmissão da rede, as quais, variam em função do tempo, mantendo assim a continuidade do fluxo de transmissão.
 
 Dessa forma, torna-se importante o estudo de soluções que considerem o streaming adaptativo em redes P2P que apoiam CDNs na distribuição de conteúdo multimídia.
 
@@ -271,7 +271,9 @@ No streaming adaptativo o vídeo é codificado a diferentes taxas de bits  crian
 
 \chapter{Trabalhos Relacionados}
 
-Neste capítulo apresenta-se as tradicionais arquiteturas de redes de distribuição de conteúdo e a atual uso do streaming adaptativo dinâmico nestes cenários,na seção 3.1 encontram-se os trabalhos que tratam streaming adaptativo em Redes de Distribuição de Conteúdo ( CDNs), dada sua importância na distribuição de conteúdo, em que apenas uma CDN como a Akamai, é responsável por 30\% do tráfego global de conteúdo.Na Seção 3.2 mostra-se os trabalhos que abordam o streaming adaptativo em redes P2P( peer to peer ), que revolucionaram o compartilhamento de conteúdo na ultima década, mas que ainda não são largamente explorados comercialmente. Na seção 3.3, trata-se do streaming adaptativo em Redes Híbridas ( CDN-P2P), que são apontadas como soluções factíveis e menos custosas em relação a distribuição de conteúdo. Na seção 3.4 trata-se do estado da arte nas políticas de gerenciamento de conteúdo nas redes P2P,CDN-P2P e CDN e na seção 3.5, faz-se as considerações finais sobre o capítulo.
+Neste capítulo apresenta-se o estado da arte na distribuição de vídeos por meio de streaming adaptativo em redes P2P que apoiam um servidor CDN,As redes P2P revolucionaram o compartilhamento de conteúdo na ultima década, mas que ainda não são largamente explorados comercialmente. as redes Híbridas CDN-P2P, são apontadas como soluções factíveis e menos custosas em relação a distribuição de conteúdo, aborda-se o atual uso do streaming adaptativo dinâmico nestes cenários, bem como, as políticas de gerenciamento de conteúdo e conclui-se com as considerações finais sobre o capítulo.
+
+
 
 
 \section{streaming adaptativo em Redes de Distribuição de Conteúdo ( CDNs)}
@@ -303,7 +305,7 @@ Por meio de análise e simulação apontam que o uso do streaming adaptativo em 
 \textbf{Optimizing File Availability in Peer-to-Peer Content Distribution}
 \newline
 
-Em \cite{Opt:2011}, apresenta-se um modelo para controle de replicação em uma rede P2P formada em torno de uma comunidade que compartilha interesses e é atendida pelo mesmo provedor de acesso. 
+Em \cite{Kangasharju2007}, apresenta-se um modelo para controle de replicação em uma rede P2P formada em torno de uma comunidade que compartilha interesses e é atendida pelo mesmo provedor de acesso. Consideram replicação, políticas de substituição de arquivos e balanceamento de carga, visando o aumento da taxa de acerto intra-comunidade.
 
 Neste trabalho busca-se otimizar a disponibilidade de arquivos em uma comunidade P2P de nós com conexão intermitente, que cooperam entre si para compartilhar arquivos, dada a natureza desta conexão, os autores consideram três importantes desafios acerca do problema: Replicação, política de substituição de arquivos e balanceamento de carga. abordam algoritmos de replicação/substituição que trabalham em função da popularidade dos arquivos, incluem um algoritmo de gerenciamento de conteúdo chamado Top-K mais frequentemente requisitado e buscam um equilibrado balanceamento de carga por meio de duas abordagens, A fragmentação de arquivos e da abordagem chamada Overflow.
 
@@ -535,7 +537,7 @@ Uma vez estabelecidas as representações de um vídeo com o número $J$ de vers
 
 
 
-\bibliographystyle{abntex}
+%\bibliographystyle{plain}
 \bibliography{referencias}
 
 \end{document}
