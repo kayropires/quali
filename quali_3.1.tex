@@ -271,25 +271,25 @@ No streaming adaptativo o vídeo é codificado a diferentes taxas de bits  crian
 
 \chapter{Trabalhos Relacionados}
 
-Neste capítulo apresenta-se o estado da arte na distribuição de vídeos por meio de streaming adaptativo em redes P2P que apoiam um servidor CDN,As redes P2P revolucionaram o compartilhamento de conteúdo na ultima década, mas que ainda não são largamente explorados comercialmente. as redes Híbridas CDN-P2P, são apontadas como soluções factíveis e menos custosas em relação a distribuição de conteúdo, aborda-se o atual uso do streaming adaptativo dinâmico nestes cenários, bem como, as políticas de gerenciamento de conteúdo e conclui-se com as considerações finais sobre o capítulo.
+Neste capítulo apresenta-se os trabalhos que tratam da distribuição de vídeos por meio de streaming adaptativo em redes P2P que apoiam um servidor CDN,As redes P2P revolucionaram o compartilhamento de conteúdo na ultima década, mas que ainda não são largamente exploradas comercialmente. as redes Híbridas CDN-P2P, são apontadas como soluções factíveis e menos custosas em relação a distribuição de conteúdo, aborda-se o atual uso do streaming adaptativo dinâmico nestes cenários, bem como, as políticas de gerenciamento de conteúdo e conclui-se com as considerações finais sobre o capítulo.
+
+\section{Streaming adaptativo em redes P2P que apoiam uma rede CDN}
+
+Em \cite{Kangasharju2007}, apresenta-se um modelo para controle de replicação em uma rede P2P formada em torno de uma comunidade que compartilha interesses e é atendida pelo mesmo provedor de acesso. Considerando replicação, políticas de substituição de arquivos e balanceamento de carga para o aumento da disponibilidade de conteúdo e da taxa de acerto intra-comunidade. A popularidade dos arquivos segue uma distribuição Zipf-like, o gerenciamento de conteúdo é feito por um algoritmo chamado Top-K mais frequentemente requisitado e aborda-se o balanceamento de carga por meio da fragmentação de arquivos e de uma técnica de overflow.
+
+com remoção da restrição de integralidade, cria-se um limite superior para o modelo de otimização que maximiza a taxa de acerto,formula-se a replicação ótima chamada, "Logarithmic Replication Rule", expressa na equação (1):
+
+\begin{equation}
+n_j^{*} = \frac{S}{B_L}+\frac{\sum_{l=1}^{L}b_lln(q_l/b_l)}{B_Lln(1-p)}+\frac{ln(q_j/b_j)}{ln(1/(1-p))}
+\end{equation}
+
+Por meio de simulação avalia-se os algoritmos propostos, conclui-se que o algoritmo Top-k mais frequentemente requisitado quase sempre alcança performance ótima.A fragmentação de arquivos melhora a distribuição do conteúdo, mas pode ser ajustada com a abordagem overflow.
 
 
-
-
-\section{streaming adaptativo em Redes de Distribuição de Conteúdo ( CDNs)}
-
-
-
-\section{Streaming adaptativo em redes P2P}
-
-\textbf{Mechanism Design for Dynamic P2P Streaming}
-\newline
-Este trabalho apresenta uma proposta de streaming adaptativo dinâmico para redes P2P, onde há um swarm para cada uma das diferentes versões de um vídeo. O par entra no swarm de acordo com a versão de vídeo selecionada, o qual depende dos recursos de banda disponíveis e das políticas aplicadas em uma teoria de jogo cooperativo para atribuir cada par a um swarm, esta teoria é um framework que consiste em mecanismos de incentivo por cooperação, onde pares que contribuem com mais recurso, podem ser recompensados recebendo versões de alta qualidade. Uma vez dentro do swarm, pares assistindo a mesma versão compartilham "chunks" ( pedaços) de vídeo uns com os outros, assim, reduzindo os custos de banda sobre o servidor e entre os pares.
-Baseado no comportamento colaborativo dos pares, desenvolvem e simulam um algoritmo distribuido de streaming dinâmico para redes P2P, consistindo de, escalonamento de chunks, contabilidade baseada em tokens e troca de versões.
-Desenvolvem mecanismos de custos de compartilhamento para uma simples versão de streaming em P2P e para multi-versões.
-
-No escalonamento de chunks em um multi-swarm, cada par mantem uma janela deslizante de chunks para baixar e o algoritmo de escalonamento que aplicam é um híbrido das estratégias Oldest-first e da Rared-first.
-Para escalonamento de upload, uma simples política First-come-first-serve para os pares e para o servidor.
+No trabalho de \cite{Tian2013} é realizado um estudo analítico do potencial uso do streaming adaptativo em redes P2P,onde há um swarm para cada uma das diferentes versões de um vídeo.Para atribuir cada par a um swarm, usa-se os recursos de banda disponíveis e um framework com políticas aplicadas em teorias de jogo cooperativo, consistida em mecanismos de incentivo por cooperação, onde pares que contribuem com mais recurso, podem ser recompensados recebendo versões de alta qualidade. Pares assistindo a mesma versão compartilham "chunks" ( pedaços) de vídeo uns com os outros, reduzindo os custos de banda sobre o servidor.
+Baseado no comportamento colaborativo dos pares, desenvolvem e simulam um algoritmo distribuido de streaming dinâmico para redes P2P, consistindo de escalonamento de chunks, contabilidade baseada em tokens e troca de versões.
+No escalonamento de chunks em um multi-swarm, cada par mantem uma janela deslizante de chunks para baixar, o algoritmo de escalonamento aplicado é um híbrido das estratégias Oldest-first e Rared-first.
+Para escalonamento de upload usa-se uma simples política First-come-first-serve para os pares e para o servidor.
 
 \textbf{Capacity Analysis of Peer-to-Peer Adaptive Streaming}
 \newline
@@ -305,37 +305,7 @@ Por meio de análise e simulação apontam que o uso do streaming adaptativo em 
 \textbf{Optimizing File Availability in Peer-to-Peer Content Distribution}
 \newline
 
-Em \cite{Kangasharju2007}, apresenta-se um modelo para controle de replicação em uma rede P2P formada em torno de uma comunidade que compartilha interesses e é atendida pelo mesmo provedor de acesso. Consideram replicação, políticas de substituição de arquivos e balanceamento de carga, visando o aumento da taxa de acerto intra-comunidade.
 
-Neste trabalho busca-se otimizar a disponibilidade de arquivos em uma comunidade P2P de nós com conexão intermitente, que cooperam entre si para compartilhar arquivos, dada a natureza desta conexão, os autores consideram três importantes desafios acerca do problema: Replicação, política de substituição de arquivos e balanceamento de carga. abordam algoritmos de replicação/substituição que trabalham em função da popularidade dos arquivos, incluem um algoritmo de gerenciamento de conteúdo chamado Top-K mais frequentemente requisitado e buscam um equilibrado balanceamento de carga por meio de duas abordagens, A fragmentação de arquivos e da abordagem chamada Overflow.
-
-No modelo de otimização os autores assumem que a popularidade dos arquivos e a probalidade do nó estar $up$ (ativo) na rede, são conhecidas a priori. Sendo $I$ o número de nós, dado $p_i$ e $S_i$, denotarem a probabilidade de estar $up$ e armazenamento compartilhado do nó $i$. Assumisse que os nós podem estar $up$ e $down$ independentemente,sendo $J$ o número de arquivos distintos, e dado $b_j$ e $q_j$ denotarem, o tamanho e probabilidade de requisição do j-ézimo arquivo.
-Desenvolveram primeiramente a teoria para arquivos sem fragmentação. Dado $X_{ij}$ ser uma variável 0-1 (zero-um), onde é igual a 1 (um),se o nó $i$ contém a réplica do arquivo $j$, e 0 (zero), caso contrário. 
-
-A partir desses parâmetros, estabelecem um limite superior na propabilidade de acerto para todos os algoritmos de gerenciamento de conteúdo, conforme problema de maximização mostrado na equação (1) sujeito a (2):
-
-\begin{equation}
-P_{hit} = 1 -\sum_{j=}^{J}q_j\prod_{i=1}^{I}(1-p_i)^{x_{ij}}
-\end{equation}
-
-Sujeito a:
-
-\begin{equation}
-\sum_{j=}^{J}b_jx_{ij}\leq S_i, i=1,\dots,I
-\end{equation}
-\newline
-
-Uma vez que os nós podem se conectar ou desconectar a qualquer momento, é preciso replicar o conteúdo para aumentar sua disponibilidade e consequentemente a confiança do serviço, os principais problemas enfrentados na replicação são os custos de criação e gerenciamento de réplicas, incluindo políticas de substituição de conteúdo.
-
-Os autores apresentam um conjunto de algoritmos para dinamicamente replicar e substituir arquivos em uma comunidade P2P, e em seguida removem a restrição de integralidade para oferecer um limite superior mais próximo do ótimo, que serve de limite para distribuição de arquivos inteiros e pedaços menores de arquivos,  Consistindo da teoria de replicação até a formulação da replicação ótima chamada, "Logarithmic Replication Rule", expressa na equação (3):
-
-\begin{equation}
-n_j^{*} = \frac{S}{B_L}+\frac{\sum_{l=1}^{L}b_lln(q_l/b_l)}{B_Lln(1-p)}+\frac{ln(q_j/b_j)}{ln(1/(1-p))}
-\end{equation}
-
-Para esta análise assumisse a probabilidade homogênea "up" para todos os nós,os quais, compartilham um determinado espaço de armazenamento e recursos de banda de upload com a comunidade,comunidade esta onde nós que são eleitos "winners", possuem uma tabela hash distribuida ( DHT- distributed hash table ) que pode ser usada e modificada afim de se obter os arquivos mais frequentemente requisitados ,a popularidade dos arquivos segue uma distribuição Zipf-like
-
-Por meio de simulação avalia-se os algoritmos propostos para replicação/substituição de arquivos, conclui-se que o algoritmo Top-k mais frequentemente requisitado quase sempre alcança performance ótima. e que a abordagem de fragmentação de arquivos, por si só melhora a distribuição do conteúdo, mas que pode ser ajustada com a abordagem overflow, que consiste em diminuir o número de requisições que um nó winner pode atender, forçando a busca em outros nós, que não possuindo o arquivo, o requisitam fora da rede, o armazenam e o fornecem ao nó requisitante,fazendo com que os arquivos sejam replicados nestes outros nós contribuindo diretamente para a distribuição do conteúdo.
 
 
 
