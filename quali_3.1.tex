@@ -1,59 +1,31 @@
 
 \documentclass[
 	% -- opções da classe memoir --
-	12pt,				% tamanho da fonte
-	% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% para impressão apenas no anverso (apenas frente). Oposto a twoside
-	a4paper,			% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	%french,				% idioma adicional para hifenização
-	%spanish,			% idioma adicional para hifenização
-	brazil				% o último idioma é o principal do documento
+	12pt,
+	oneside,
+	a4paper,
+	english,
+	brazil
 	]{abntex2ppgsi}
 
-% ---
 % Pacotes básicos 
-% ---
-% \usepackage{lmodern}			% Usa a fonte Latin Modern			
-% \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
-\usepackage{pdfpages}     %para incluir pdf
-\usepackage{algorithm}			%para ilustrações do tipo algoritmo
-\usepackage{mdwlist}			%para itens com espaço padrão da abnt
-\usepackage[noend]{algpseudocode}			%para ilustrações do tipo algoritmo
+
+\usepackage[utf8]{inputenc}	
+\usepackage{lastpage}	
+\usepackage{indentfirst}
+\usepackage{color}	
+\usepackage{graphicx}	
+\usepackage{microtype} 
+\usepackage{pdfpages} 
+\usepackage{algorithm}	
+\usepackage{mdwlist}
+\usepackage[noend]{algpseudocode}		
 		
-% ---
-% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
-% ---
-\usepackage{lipsum}				% para geração de dummy text
-% ---
-
-% ---
-% Pacotes de citações
-% ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
-
-% --- 
-% CONFIGURAÇÕES DE PACOTES
-% --- 
-
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
+% Pacotes abnteX2
+\usepackage{lipsum}	
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
 \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
 \renewcommand{\backref}{}
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
@@ -64,70 +36,21 @@
 	\else
 		Citado #1 vezes nas páginas #2.%
 	\fi}%
-% ---
-
-% ---
-% Informações de dados para CAPA e FOLHA DE ROSTO
-% ---
-
 
 \titulo{Em direção a um modelo de distribuição de vídeo sob demanda por meio de streaming adaptativo em redes CDN-P2P}
 
-
-%-------------------------------------------------------------------------
 \autor{\uppercase{KAYRO FIGUEIRA PIRES}}
-
-
-%-------------------------------------------------------------------------
 \local{Manaus}
-
-%-------------------------------------------------------------------------
 \data{2016}
-
-%-------------------------------------------------------------------------
 \orientador{Prof.Dr.: Cesar Augusto Viana Melo}
 
 \tipotrabalho{Proposta de qualificação (Mestrado)}
-%\tipotrabalho{Dissertação (Mestrado)}
 
 \preambulo{
-%-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre o texto ``Versão 
-% original'':
-%
-% Não usar para Qualificação.
-% Não usar para versão corrigida de Dissertação.
-%
-%-------------------------------------------------------------------------
-% Versão original
-%-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre o ``texto principal do
-% preambulo'':
-%
-% Para Qualificação, trocar por: Texto de Exame de Qualificação apresentado à Escola de Artes, Ciências e Humanidades da Universidade de São Paulo como parte dos requisitos para obtenção do título de Mestre em Ciências pelo Programa de Pós-graduação em Sistemas de Informação.
-%
-%-------------------------------------------------------------------------
 %\newline \newline \newline 
 Proposta de qualificação apresentada ao Instituto de Computação da Universidade Federal do Amazonas, para qualificação no curso de Mestrado em Ciência da Computação pelo Programa de Pós-graduação em Informática.
 %
-\newline \newline Área de Computação: Redes de Computadores e telecomunicações
-%-------------------------------------------------------------------------
-% Comentário adicional do PPgSI - Informações sobre o texto da ``Versão 
-% corrigida'':
-%
-% Não usar para Qualificação.
-% Não usar para versão original de Dissertação.
-% 
-% Substituir ``xx de xxxxxxxxxxxxxxx de xxxx'' pela ``data da defesa''.
-%
-%-------------------------------------------------------------------------
-% \newline \newline \newline Versão corrigida contendo as alterações solicitadas pela comissão julgadora em xx de xxxxxxxxxxxxxxx de xxxx. A versão original encontra-se em acervo reservado na Biblioteca da EACH-USP e na Biblioteca Digital de Teses e Dissertações da USP (BDTD), de acordo com a Resolução CoPGr 6018, de 13 de outubro de 2011.
-}
-% ---
-
-
-% ---
-% Configurações de aparência do PDF final
+\newline \newline Área de Computação: Redes de Computadores e telecomunicações}
 
 % alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{41,5,195}
@@ -141,59 +64,31 @@ Proposta de qualificação apresentada ao Instituto de Computação da Universid
     	pdfsubject={\imprimirpreambulo},
 	    pdfcreator={LaTeX com abnTeX2 adaptado para o PPgSI-EACH-USP},
 		pdfkeywords={abnt}{latex}{abntex}{abntex2}{qualificação de mestrado}{dissertação de mestrado}{ppgsi}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
+		colorlinks=true,
+    	linkcolor=blue,
+    	citecolor=blue,
+    	filecolor=magenta, 
 		urlcolor=blue,
 		bookmarksdepth=4 
         }
 \makeatother
-% --- 
-
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
-
-% O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.25cm}
-
-% Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0cm}  % tente também \onelineskip
 \renewcommand{\baselinestretch}{1.5}
-
-% ---
-% compila o indice
-% ---
 \makeindex
-% ---
-
 	% Controlar linhas orfas e viuvas
   \clubpenalty10000
   \widowpenalty10000
   \displaywidowpenalty10000
 
-% ----
-% Início do documento
-% ----
 \begin{document}
 
-% Retira espaço extra obsoleto entre as frases.
 \frenchspacing 
-
-
-%-------------------------------------------------------------------------
 \imprimircapa
-% ---
-
-\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+\setlength{\absparsep}{18pt}
 \begin{resumo}
 \end{resumo}
 
-
-%-------------------------------------------------------------------------
-
-%-------------------------------------------------------------------------
 \chapter{Introdução}
 
 Em 2019 o trafego de vídeo na Internet será 80\% de todo trafego consumido, sendo produzido aproximadamente um milhão de minutos de vídeo a cada segundo \cite{CISCO2015}. Nos últimos anos temos visto, ao longo da crescente popularidade dos vídeos na Internet, um aumento do tráfego servido por Redes de Distribuição de Conteúdo (CDNs - Content Delivery Network) [7],[8]. 
@@ -275,50 +170,23 @@ Neste capítulo apresenta-se os trabalhos que tratam da distribuição de vídeo
 
 \section{Streaming adaptativo em redes P2P que apoiam uma rede CDN}
 
-Em \cite{Kangasharju2007}, apresenta-se um modelo para controle de replicação em uma rede P2P formada em torno de uma comunidade que compartilha interesses e é atendida pelo mesmo provedor de acesso. Considerando replicação, políticas de substituição de arquivos e balanceamento de carga para o aumento da disponibilidade de conteúdo e da taxa de acerto intra-comunidade. A popularidade dos arquivos segue uma distribuição Zipf-like, o gerenciamento de conteúdo é feito por um algoritmo chamado Top-K mais frequentemente requisitado e aborda-se o balanceamento de carga por meio da fragmentação de arquivos e de uma técnica de overflow.
-
-com remoção da restrição de integralidade, cria-se um limite superior para o modelo de otimização que maximiza a taxa de acerto,formula-se a replicação ótima chamada, "Logarithmic Replication Rule", expressa na equação (1):
-
-\begin{equation}
-n_j^{*} = \frac{S}{B_L}+\frac{\sum_{l=1}^{L}b_lln(q_l/b_l)}{B_Lln(1-p)}+\frac{ln(q_j/b_j)}{ln(1/(1-p))}
-\end{equation}
-
-Por meio de simulação avalia-se os algoritmos propostos, conclui-se que o algoritmo Top-k mais frequentemente requisitado quase sempre alcança performance ótima.A fragmentação de arquivos melhora a distribuição do conteúdo, mas pode ser ajustada com a abordagem overflow.
+Em \cite{Kangasharju2007}, apresenta-se um modelo para controle de replicação em uma rede P2P formada em torno de uma comunidade que compartilha interesses e é atendida pelo mesmo provedor de acesso. Considerando replicação, políticas de substituição de arquivos e balanceamento de carga para o aumento da disponibilidade de conteúdo e da taxa de acerto intra-comunidade. A popularidade dos arquivos segue uma distribuição Zipf-like, o gerenciamento de conteúdo é feito por um algoritmo chamado Top-K mais frequentemente requisitado e aborda-se o balanceamento de carga por meio da fragmentação de arquivos e de uma técnica de overflow.Com remoção da restrição de integralidade, cria-se um limite superior para o modelo de otimização que maximiza a taxa de acerto,formula-se a replicação ótima chamada, "Logarithmic Replication Rule".Por meio de simulação avalia-se os algoritmos propostos, conclui-se que o algoritmo Top-k mais frequentemente requisitado quase sempre alcança performance ótima.A fragmentação de arquivos melhora a distribuição do conteúdo, mas pode ser ajustada com a abordagem overflow.
 
 
-No trabalho de \cite{Tian2013} é realizado um estudo analítico do potencial uso do streaming adaptativo em redes P2P,onde há um swarm para cada uma das diferentes versões de um vídeo.Para atribuir cada par a um swarm, usa-se os recursos de banda disponíveis e um framework com políticas aplicadas em teorias de jogo cooperativo, consistida em mecanismos de incentivo por cooperação, onde pares que contribuem com mais recurso, podem ser recompensados recebendo versões de alta qualidade. Pares assistindo a mesma versão compartilham "chunks" ( pedaços) de vídeo uns com os outros, reduzindo os custos de banda sobre o servidor.
-Baseado no comportamento colaborativo dos pares, desenvolvem e simulam um algoritmo distribuido de streaming dinâmico para redes P2P, consistindo de escalonamento de chunks, contabilidade baseada em tokens e troca de versões.
-No escalonamento de chunks em um multi-swarm, cada par mantem uma janela deslizante de chunks para baixar, o algoritmo de escalonamento aplicado é um híbrido das estratégias Oldest-first e Rared-first.
-Para escalonamento de upload usa-se uma simples política First-come-first-serve para os pares e para o servidor.
+No trabalho de \cite{Tian2013} é apresentada uma proposta de streaming dinâmico para redes P2P com mecanismos de incentivo baseados em teorias de jogos cooperativos, neste cenário há um swarm para cada uma das diferentes versões de um vídeo,onde, pares que contribuem com mais recursos, podem ser recompensados recebendo versões de alta qualidade.Pares assistindo a mesma versão compartilham chunks de vídeo uns com os outros, reduzindo os custos de banda sobre o servidor. Desenvolve e simula-se um algoritmo distribuido de streaming dinâmico para comunidades formadas por pares que compartilham o custo de um conteúdo pago e também para comunidades que compartilham conteúdo gratuito. Conclui-se que o sucesso do streaming dinâmico em redes P2P tem como ponto principal os mecanismos de incentivo. Por meio de simulação demonstra-se a eficiência dos mecanismos de incentivo e do algoritmo de streaming dinâmico.
 
-\textbf{Capacity Analysis of Peer-to-Peer Adaptive Streaming}
-\newline
-Os autores afirmam que o streaming adaptativo já é adotado como solução na distribuição de conteúdo, é natural incluir o P2P neste modelo de distribuição,
-de modo que, analisam o potencial uso do streaming adaptativo, tal como o DASH ( Dynamic Adaptive Streaming over HTTP ) em redes P2P, desenvolvem um modelo estocástico para avaliar a performance do streaming adaptativo em redes P2P em face das variações de banda e churn dos pares.
-Para maximizar o ganho, é desejável facilitar o compatilhamento P2P entre os pares que assistem versões diferentes do mesmo vídeo.
-Por meio de análise e simulação apontam que o uso do streaming adaptativo em redes P2P não só reduz a carga sobre o servidor, mas melhora a percepção do usuário sobre a qualidade do vídeo diante das dinâmicas variações de banda.
+No trabalho de \cite{Xu2013}é apresentada uma análise do potencial uso do streaming adaptativo, tal como o DASH ( Dynamic Adaptive Streaming over HTTP ) em redes P2P, avalia-se a performance do streaming adaptativo em redes P2P em face das variações de banda e churn dos pares. Por meio de análise e simulação apontam que o uso do streaming adaptativo em redes P2P não só reduz a carga sobre o servidor, mas melhora a percepção do usuário sobre a qualidade do vídeo diante das dinâmicas variações de banda.
 
 \section{Streaming Adaptativo em redes híbridas CDN-P2P}
 
 \section{Políticas de Gerenciamento de conteúdo em redes P2P,CDN-P2P,CDN}
 
-\textbf{Optimizing File Availability in Peer-to-Peer Content Distribution}
-\newline
+Em \cite{Oliveira} os autores apresentam políticas de gerenciamento de objetos para melhorar a disponibilidade de conteúdo em sistemas CDN-P2P. Quatro políticas são propostas e avaliadas usando simulação com modelos de dados de coleções de vídeos do youtube. Em alguns casos as políticas propostas foram capazes de melhorar em mais de 70\% a disponibilidade de conteúdo comparada a disponibilidade proporcionada pela política LFU e mais de 50\% comparada a política GDSP.
 
-
-
-
-
-\textbf{Políticas de Gerenciamento de objetos em redes CDN-P2P}
-\newline
-(Libório, Melo ,Fonseca 2012) apresentam políticas de gerenciamento de objetos para melhorar a disponibilidade de conteúdo em sistemas CDN-P2P. Quatro políticas são propostas e avaliadas usando simulação com dados reais de coleções de vídeos do youtube. Em alguns casos as políticas propostas foram capazes de melhorar em mais de 70\% a disponibilidade de conteúdo comparada a disponibilidade proporcionada pela política LFU e mais de 50\% comparada a política GDSP.
-
-\textbf{Object Replication Strategies in Content Distribution Networks}
-
-Neste trabalho estuda-se o problema de replicação de objetos em servidores de uma rede CDN. No modelo apresentado cada Internet Autonomous System (AS), é um nó com capacidade de armazenamento limitada para replicação de objetos, de modo que, um objetos possa ser servido por um AS mais próximo ao cliente que o requisita. Mostra-se que o problema é NP-Completo e o formulam como um problema de otimização combinatória, buscando minimizar o número de AS's. sobre uma parte da topologia real da internet, usando dados fornecidos por NLANR[12].
-Mostram a comparação entre 4 heurísticas de replicação de objetos, em busca de melhores resultados, uma vez que a solução ótima não é factível, são elas:RANDOM, POPULARITY, GREEDY-SINGLE, GREEDY-GLOBAL.
-Mostra-se como resultado que a melhor performance é da heurística Greedy-Global na qual todos os servidores CDN cooperam nas decisões de replicação, distando 24\% da heurística mais simples.
-O trabalho também aponta em direção a um modelo de distribuição de conteúdo em redes par-a-par, que estuda os benefícios de cooperação entre os nós, e mostram que os nós usando uma simples heurística e cooperação inteligente pode obter ganhos de performance significativos
+Em \cite{Kangasharju2002}estuda-se o problema de replicação de objetos em servidores de uma rede CDN. de modo que,o objetos possam ser servidos por um servidor mais próximo ao cliente que o requisita. Mostra-se que o problema é NP-Completo e o formulam como um problema de otimização combinatória,buscando minimizar o número de servidores,esta análise  é feita sobre uma parte da topologia real da internet.
+Mostram a comparação entre 4 heurísticas de replicação de objetos, RANDOM, POPULARITY, GREEDY-SINGLE, GREEDY-GLOBAL.
+Conclui-se que a melhor performance é da heurística Greedy-Global na qual todos os servidores CDN cooperam nas decisões de replicação, distando 24\% da heurística mais simples.
+O trabalho também aponta em direção a um modelo de distribuição de conteúdo em redes par-a-par, que estuda os benefícios de cooperação entre os nós, e mostram que os nós usando uma simples heurística e cooperação inteligente podem obter ganhos de performance significativos.
 
 
 \section{Considerações do Capitulo}
@@ -386,32 +254,6 @@ O algoritmo de escalonamento deve baixar os próximos segmentos com tempo de rep
 
 \section{Modelo de Otimização}
 
-%Na distribuição de vídeo em uma comunidade SEM streaming adaptativo o número de cópias de qualquer objeto é um valor inteiro. Seja $S_i$ a capacidade de armazenamento do par $i$, dada em bytes, então, em uma comunidade formada por pares de swarming, a capacidade total de armazenamento $S$ é dada por:
-
-%\begin{equation}
-%S=\sum_{i=1}^{I}S_i
-%\end{equation}
-
-	%\label{eq:equacao-exemplo1}
-
-% \begin{equation}
-%   Phit=1 -{v}q_{v}\prod_{i=1}^{I}(1-p_{i})^{x_{iv}}
-% 	\label{eq:equacao-exemplo2}
-% \end{equation}
-
-%Seja $x_{iv}$ uma variável decisão que assume o valor 1 se o par $i$ contém uma cópia do vídeo $v$ e 0(zero) caso contrário. Dado que $n_v$ é o número de réplicas do vídeo $v$, busca-se maximizar o número de cópias do vídeo:
-
-%\begin{equation}
-%numero de copias do video v no swarm
-%n_{v}=\sum_{i=1}^{I}x_{iv}
-%	\label{eq:equacao-exemplo1}
-%\end{equation}
-%Sujeito a:
-
-%\begin{equation}
-%  \sum_{i=1}^{I}L_{v}x_{iv}\leq S, \forall i\in I
-%	\label{eq:equacao-exemplo3}
-%\end{equation}
 
 \newcommand{\veth}{$h_{j}=(h_{1j},h_{2j},h_{3j},\ldots,H_j)$}
 
@@ -491,22 +333,7 @@ Uma vez estabelecidas as representações de um vídeo com o número $J$ de vers
 
 \chapter{Conclusão}
 
-
-
-
-% ----------------------------------------------------------
-% ELEMENTOS PÓS-TEXTUAIS
-% ----------------------------------------------------------
 \postextual
-% ----------------------------------------------------------
-
-% ----------------------------------------------------------
-% Referências bibliográficas
-% ----------------------------------------------------------
-%\bibliography{referencias}
-
-
-
 %\bibliographystyle{plain}
 \bibliography{referencias}
 
