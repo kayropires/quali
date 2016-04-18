@@ -145,30 +145,42 @@ O Capítulo 5 apresenta as considerações deste trabalho, onde serão descritas
 
 \chapter{Fundamentos Téoricos}
 
-\section{Redes de Distribuição de Conteúdo - CDN}
+\section{Vídeo sob Demanda}
 
  
 
-\subsection{Arquitetura Híbrida CDN-P2P}
+\section{Arquitetura Híbrida CDN-P2P}
 
 
 
 
 
 
-\subsection{Principais Métodos de transmissão de vídeo}
+\section{Principais Métodos de transmissão de vídeo}
 
 Os principais métodos de distribuição de vídeo são três: streaming tradicional, download progressivo e streaming adaptativo. No streaming tradicional o arquivo  é dividido em pedaços menores e sua reprodução é individual e contínua a medida que cada pedaço é baixado. No download progressivo o vídeo é dividido em segmentos e ao longo de toda a  sessão  apenas uma taxa de bits é selecionada, os segmentos são armazenados no cliente dando vazão ao conteúdo, com a piora das condições da rede podem ocorrer interrupções e congelamentos na reprodução do vídeo.
 
 No streaming adaptativo o vídeo é codificado a diferentes taxas de bits  criando diferentes versões desse vídeo, com o mesmo tempo de playback, cada versão é dividida em segmentos de mesma duração. Chama-se representação o conjunto de características do versionamento de um vídeo, tais como, o número de versões, a quantidade, o tamanho e duração dos segmentos. Nesta abordagem a transmissão é contínua e o conteúdo é descartado após ser apresentado, mas a característica fundamental é adaptar a taxa de bits do vídeo ao longo da sessão de acordo com as variações das condições da rede . Fatores como largura de banda, vazão e buffer são avaliados para um melhor ajuste da taxa de bits, proporcionando continuidade ao fluxo de vídeo e uma melhor experiência de visualização ao usuario.(SEUFERT et al., 2013).
 
+\section{Streaming adaptativo}
+No streaming adaptativo cada arquivo de vídeo é dividido em J versões e cada versão é dividida em H segmentos e todas as versões tem o mesmo tempo de playback X (Tian et al., 2013), Chama-se representação o conjunto de características do versionamento de um vídeo, tais como, o número de versões, a quantidade, tamanho e duração dos segmentos.
+
+\begin{figure}[H]% H manda colocar exatamente nessa posição no texto (relativa aos parágrafos anterior e posterior)
+	\centering
+ 	  \caption{Representação de um vídeo para streaming adaptativo}
+		\includegraphics{figuras/segmentos.png}
+	%\label{figura1:Streaming adaptativo em uma rede P2P}
+  \source{Autor, 2016}
+\end{figure}
+
 
 
 \chapter{Trabalhos Relacionados}
 
-Neste capítulo apresenta-se os trabalhos que tratam da distribuição de vídeos por meio de streaming adaptativo em redes P2P que apoiam um servidor CDN,As redes P2P revolucionaram o compartilhamento de conteúdo na ultima década, mas que ainda não são largamente exploradas comercialmente. as redes Híbridas CDN-P2P, são apontadas como soluções factíveis e menos custosas em relação a distribuição de conteúdo, aborda-se o atual uso do streaming adaptativo dinâmico nestes cenários, bem como, as políticas de gerenciamento de conteúdo e conclui-se com as considerações finais sobre o capítulo.
+Neste capítulo apresenta-se os trabalhos que tratam dos métodos de distribuição de vídeos sob demanda por meio de streaming adaptativo em redes P2P,as redes P2P revolucionaram o compartilhamento de conteúdo na ultima década, mas que ainda não são largamente exploradas comercialmente. as redes Híbridas CDN-P2P, são apontadas como soluções factíveis e menos custosas em relação a distribuição de conteúdo, aborda-se o atual uso do streaming adaptativo dinâmico nestes cenários, bem como, as políticas de gerenciamento de conteúdo e conclui-se com as considerações finais sobre o capítulo.
 
-\section{Streaming adaptativo em redes P2P que apoiam uma rede CDN}
+\section{Distribuição de vídeo sob demanda}
+\subsection{Em redes P2P}
 
 Em \cite{Kangasharju2007}, apresenta-se um modelo para controle de replicação em uma rede P2P formada em torno de uma comunidade que compartilha interesses e é atendida pelo mesmo provedor de acesso. Considerando replicação, políticas de substituição de arquivos e balanceamento de carga para o aumento da disponibilidade de conteúdo e da taxa de acerto intra-comunidade. A popularidade dos arquivos segue uma distribuição Zipf-like, o gerenciamento de conteúdo é feito por um algoritmo chamado Top-K mais frequentemente requisitado e aborda-se o balanceamento de carga por meio da fragmentação de arquivos e de uma técnica de overflow.Com remoção da restrição de integralidade, cria-se um limite superior para o modelo de otimização que maximiza a taxa de acerto,formula-se a replicação ótima chamada, "Logarithmic Replication Rule".Por meio de simulação avalia-se os algoritmos propostos, conclui-se que o algoritmo Top-k mais frequentemente requisitado quase sempre alcança performance ótima.A fragmentação de arquivos melhora a distribuição do conteúdo, mas pode ser ajustada com a abordagem overflow.
 
@@ -177,9 +189,18 @@ No trabalho de \cite{Tian2013} é apresentada uma proposta de streaming dinâmic
 
 No trabalho de \cite{Xu2013}é apresentada uma análise do potencial uso do streaming adaptativo, tal como o DASH ( Dynamic Adaptive Streaming over HTTP ) em redes P2P, avalia-se a performance do streaming adaptativo em redes P2P em face das variações de banda e churn dos pares. Por meio de análise e simulação apontam que o uso do streaming adaptativo em redes P2P não só reduz a carga sobre o servidor, mas melhora a percepção do usuário sobre a qualidade do vídeo diante das dinâmicas variações de banda.
 
-\section{Streaming Adaptativo em redes híbridas CDN-P2P}
+\subsection{ em redes híbridas CDN-P2P}
+Em \cite{Zhang2015} É realizado o estudo de um serviço de vídeos sob demanda sobre uma rede híbrida CDN-P2P.Localizado na China, o provedor de serviços Kankan adota uma rede híbrida fracamente acoplada, implanta uma escala CDN em três clusters geográficos, adota um mecanismo para melhorar o delay inicial do straming de vídeo.
 
-\section{Políticas de Gerenciamento de conteúdo em redes P2P,CDN-P2P,CDN}
+Coletou-se os ID's dos vídeos e IP's dos servidores por meio de uma rede P2P de rastreadores, foram enviadas solicitações de vídeos aos servidores usando os dados coletados, de modo que, as respostas com as listas dos pares candidatos a fornecer os vídeos, eram gravadas para posterior análise. Observou-se que haviam mais de 3 milhões de clientes ativos diariamente, e que o conteúdo nos caches dos pares muda muito lentamente e que por isso reduzem eficientemente o número de requisições ao servidor comparadas com servidores sem apoio de uma rede P2P.
+Conclui-se que a rede P2P contribui com 98\% do conteúdo de vídeo mais popular e que em geral o mecanismo dual-server melhora o delay inicial do streaming de vídeo. Kankan formece um serviço de streaming de VoD em grande escala sobre infra-estrutura fixa de pequena escala, devido a lenta variação de conteúdo nos caches dos pares, somada a mecanismos de aprimoramento na CDN.
+
+
+
+
+%Ge Zhang, Wei Liu, Member, IEEE, Xiaojun Hei, Member, IEEE, and Wenqing Cheng,
+
+\section{Políticas de Gerenciamento de conteúdo}
 
 Em \cite{Oliveira} os autores apresentam políticas de gerenciamento de objetos para melhorar a disponibilidade de conteúdo em sistemas CDN-P2P. Quatro políticas são propostas e avaliadas usando simulação com modelos de dados de coleções de vídeos do youtube. Em alguns casos as políticas propostas foram capazes de melhorar em mais de 70\% a disponibilidade de conteúdo comparada a disponibilidade proporcionada pela política LFU e mais de 50\% comparada a política GDSP.
 
@@ -286,38 +307,41 @@ Sujeito \ a:
 \sum_{j=1}^J\sum_{h=1}^{H}x_{ijh}\frac{l_{jh}}{U_i} \leq W_i ,i = 1, \dots, I
 \end{equation}
 
-A latência X dos m segmentos é menor ou igual ao tamanho da janela de tempo W.
+O tamanho da janela de tempo W é igual ao tempo de latência X necessário para preencher o buffer, nesta janela devem contem os m segmentos necessários para manter o fluxo no tempo de playback
 \begin{equation}
-X_m \leq W
+W = X
 \end{equation}
+
 % \begin{equation}
 %   \sum_{j=1}^{J}\sum_{h=1}^{H}\frac{Lj}{M}n_{jh}\leq S
 % 	\label{eq:equacao-exemplo4}
 % \end{equation}
 
 
-\section{Representação de um vídeo para streaming adaptativo}
+% \section{Representação de um vídeo para streaming adaptativo}
 
-No streaming adaptativo cada arquivo de vídeo é dividido em J versões e cada versão é dividida em H segmentos e todas as versões tem o mesmo tempo de playback X (Tian et al., 2013), Chama-se representação o conjunto de características do versionamento de um vídeo, tais como, o número de versões, a quantidade, tamanho e duração dos segmentos.
+% No streaming adaptativo cada arquivo de vídeo é dividido em J versões e cada versão é dividida em H segmentos e todas as versões tem o mesmo tempo de playback X (Tian et al., 2013), 
+% Chama-se representação o conjunto de características do versionamento de um vídeo, tais como, o número de versões, a quantidade, tamanho e duração dos segmentos.
 
 
-\begin{figure}[H]% H manda colocar exatamente nessa posição no texto (relativa aos parágrafos anterior e posterior)
-	\centering
- 	  \caption{Representação de um vídeo para streaming adaptativo}
-		\includegraphics{figuras/segmentos.png}
-	%\label{figura1:Streaming adaptativo em uma rede P2P}
-  \source{Autor, 2016}
-\end{figure}
+% \begin{figure}[H]% H manda colocar exatamente nessa posição no texto (relativa aos parágrafos anterior e posterior)
+% 	\centering
+%  	  \caption{Representação de um vídeo para streaming adaptativo}
+% 		\includegraphics{figuras/segmentos.png}
+% 	%\label{figura1:Streaming adaptativo em uma rede P2P}
+%   \source{Autor, 2016}
+% \end{figure}
 
-O tracker identifica e mantem uma lista dos pares e seus recursos que entram no swarm, como banda de upload/download e capacidade de buffer, então fornece uma lista de pares possíveis para conexão, o qual, é capaz de consumir e compartilhar segmentos de vídeo.
-Número de versões ideal (Xu et al., 2013)
-Para escalonamento de download dos segmentos, um par usa políticas tais como oldest-first,rared first, the nearest-deadline-first,entre outras(Zhou:2011), entretanto, pretende-se usar uma política greedy e suas variações( priorizando segmentos com maior qualidade em termos de bits recebidos).
+% O tracker identifica e mantem uma lista dos pares e seus recursos que entram no swarm, como banda de upload/download e capacidade de buffer, então fornece uma lista de pares possíveis para conexão, o qual, é capaz de consumir e compartilhar segmentos de vídeo.
+% Número de versões ideal (Xu et al., 2013)
+% Para escalonamento de download dos segmentos, pretende-se usar uma política greedy, priorizando segmentos com maior qualidade em termos de bits recebidos.
 
 
 
 \section{Políticas de escalonamento para downloads de segmentos.}
 
-Nosso objetivo é maximizar a quantidade de segmentos de maior qualidade entre os pares, para isso consideramos a taxa de bits, tamanho e duração do segmento, quanto ao par, consideramos a capacidade de armazenamento, banda de upload e download . Cada par mantém uma janela deslizante de tempo com segmentos para fazer o download, avançando a medida que o vídeo é reproduzido (Tian et al., 2013), portanto, é necessário escalonar dentro dessa janela de tempo, quais segmentos e suas respectivas taxas $j$ do vídeo $v$ serão baixados, de maneira que mantenha a maior qualidade, sem comprometer o fluxo de reprodução, a figura 2 ilustra esse cenário( construir a figura ).
+Para escalonamento de download dos segmentos, pretende-se usar uma política greedy, priorizando segmentos com maior qualidade em termos de bits recebidos.
+O objetivo é maximizar a quantidade de segmentos de maior qualidade entre os pares, para isso considera-se a taxa de bits, tamanho e duração do segmento. Quanto ao par, consideramos a capacidade de armazenamento, banda de upload e download . Cada par mantém uma janela deslizante de tempo com segmentos para fazer o download, avançando a medida que o vídeo é reproduzido (Tian et al., 2013), portanto, é necessário escalonar dentro dessa janela de tempo, quais segmentos e suas respectivas taxas $j$ do vídeo $v$ serão baixados, de maneira que mantenha a maior qualidade, sem comprometer o fluxo de reprodução, a figura 2 ilustra esse cenário( construir a figura ).
 
 \begin{figure}[H]% H manda colocar exatamente nessa posição no texto (relativa aos parágrafos anterior e posterior)
 	\centering
